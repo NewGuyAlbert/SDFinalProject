@@ -1,10 +1,21 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 
 app.use(express.json())
 app.use(express.static("views"))
 
 app.set('view engine', 'ejs');
+
+// connect to cloud database
+const uri = "mongodb+srv://NewGuyAlbert:nUxY9Ulhet1s1M5T@sdfpcluster.amdcu.mongodb.net/?retryWrites=true&w=majority"
+mongoose.connect(
+    uri,
+    () => {
+        console.log("connected to db")
+    },
+    e => console.error(e)   
+)
 
 // session
 const session = require('express-session');
