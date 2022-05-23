@@ -8,14 +8,17 @@ app.use(express.static("views"))
 app.set('view engine', 'ejs');
 
 // connect to cloud database
-const uri = "mongodb+srv://NewGuyAlbert:nUxY9Ulhet1s1M5T@sdfpcluster.amdcu.mongodb.net/?retryWrites=true&w=majority"
+const credentials = require("./config/dbCredentials.js")
 mongoose.connect(
-    uri,
+    credentials.uri,
     () => {
         console.log("connected to db")
     },
     e => console.error(e)   
 )
+// const User = require("./models/User")
+// const user = new User({firstName: "Test", lastName: "Teest", email: "a@a.com"})
+// user.save().then(() => console.log("user saved"))
 
 // session
 const session = require('express-session');
@@ -45,10 +48,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/signup', authLimiter)
 app.use('/login', authLimiter)
 
-// const authRoute = require('./routes/auth.js');
+const authRoute = require('./routes/auth.js');
 // const usersRoute = require('./routes/users.js');
 
-// app.use(authRoute);
+app.use(authRoute);
 // app.use(usersRoute);
 
 // Redirects

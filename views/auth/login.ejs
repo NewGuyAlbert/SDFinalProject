@@ -1,0 +1,30 @@
+
+<%- include('../global/header.ejs') %>
+<%- include('../global/navbarIndex.ejs') %>
+
+<script src="./auth/login.js"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="./auth/auth.css">
+
+<div class="card">
+
+    <h2 class="card-header">Log In</h2>
+    <div class="card-body">
+        <form action="/login" method="POST" name="loginform" onsubmit="return validateLogin();">
+            <p> 
+                <label for="email">Enter Email: </label>
+                <input type="text" id="email" name="email" placeholder="Type in your email.">
+            </p> 
+            <p>
+                <label for="password">Enter Password: </label>
+                <input type="password" id="password" name="password" placeholder="Type in your password.">
+            </p>
+
+            <button class="btn btn-warning" type="submit">Log In</button>
+        </form>
+    </div>
+
+</div>
+
+<%- include('../global/footer.ejs') %>

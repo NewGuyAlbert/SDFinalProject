@@ -4,7 +4,8 @@
   "description": "Final Project for Software Development Top-up",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "ejs": "^3.1.8",
+    "email-validator": "^2.0.4",
     "express": "^4.18.1",
     "express-rate-limit": "^6.4.0",
     "express-session": "^1.17.3",

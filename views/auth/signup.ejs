@@ -1,0 +1,39 @@
+
+<%- include('../global/header.ejs') %>
+<%- include('../global/navbarIndex.ejs') %>
+
+<script src="./auth/signup.js"></script>
+
+<div class="card">
+
+    <h2 class="card-header">Sign Up</h2>
+    <div class="card-body">
+        <form action="/signup" method="POST" name="signupform" onsubmit="return validateUser();">
+            <p> 
+                <label for="firstName">Enter First Name: </label>
+                <input type="text" id="firstName" name="firstName" placeholder="Type in your first name.">
+            </p>
+            <p> 
+                <label for="lastName">Enter Last Name: </label>
+                <input type="text" id="lastName" name="lastName" placeholder="Type in your last name.">
+            </p> 
+            <p>
+                <label for="email">Enter email: </label>
+                <input type="email" id="email" name="email" placeholder="Type in you email.">
+            </p>
+            <p>
+                <label for="password">Enter Password: </label>
+                <input type="password" id="password" name="password" placeholder="Password should be more than 8 characters.">
+            </p>
+            <p>
+                <label for="passwordRepeat">Repeat password: </label>
+                <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repeat password.">
+            </p>
+
+            <button class="btn btn-warning" type="submit">Sign Up</button>
+        </form>
+    </div>
+
+</div>
+
+<%- include('../global/footer.ejs') %>
