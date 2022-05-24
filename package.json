@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "nodemon app.js"
+    "start-dev": "nodemon app.js",
+    "seed-admin": "node ./seeds/seedAdmin.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "express-rate-limit": "^6.4.0",
     "express-session": "^1.17.3",
     "mongodb": "^4.6.0",
-    "mongoose": "^6.3.4"
+    "mongoose": "^6.3.4",
+    "nodemailer": "^6.7.5"
   }
 }

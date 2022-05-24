@@ -1,24 +1,14 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
 
 app.use(express.json())
 app.use(express.static("views"))
 
 app.set('view engine', 'ejs');
 
-// connect to cloud database
-const credentials = require("./config/dbCredentials.js")
-mongoose.connect(
-    credentials.uri,
-    () => {
-        console.log("connected to db")
-    },
-    e => console.error(e)   
-)
-// const User = require("./models/User")
-// const user = new User({firstName: "Test", lastName: "Teest", email: "a@a.com"})
-// user.save().then(() => console.log("user saved"))
+// loads db
+const mongoose = require("./dbConnector.js")
+
 
 // session
 const session = require('express-session');
@@ -47,12 +37,14 @@ const authLimiter = rateLimit({
 app.use(express.urlencoded({ extended: false }))
 app.use('/signup', authLimiter)
 app.use('/login', authLimiter)
+app.use('/admin/login', authLimiter)
+
 
 const authRoute = require('./routes/auth.js');
-// const usersRoute = require('./routes/users.js');
+const adminRoute = require('./routes/admin.js');
 
 app.use(authRoute);
-// app.use(usersRoute);
+app.use(adminRoute)
 
 // Redirects
 const goToLoginPage = (req, res, next) => {

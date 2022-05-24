@@ -1,0 +1,19 @@
+<%- include('../global/header.ejs') %>
+
+<script src="./logintwofa.js"></script>
+
+<div class="card">
+    <h2 class="card-header">Log In</h2>
+    <div class="card-body">
+        <p>You only have 1 minute to input the verification code</p>
+        <form action="/admin/logintwofa" method="POST" name="twofaform" onsubmit="return validateTwofa();">
+            <p>
+                <label for="code">Enter verification code: </label>
+                <input type="password" id="code" name="code" placeholder="Type the verification code.">
+            </p>
+            <button class="btn btn-warning" type="submit">Log In</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../global/footer.ejs') %>

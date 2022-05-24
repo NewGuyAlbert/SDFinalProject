@@ -48,9 +48,9 @@ router.post('/signup', async (req, res) => {
                     const newUser = new User({firstName: firstName, lastName: lastName, email: email, password: hashedPassword})
                     newUser.save().then(() => {
                         console.log("New user added")
-                        req.session.user = email;
-                        req.session.role = "customer";
-                        return res.redirect("/login");
+                        req.session.user = email
+                        req.session.role = "customer"
+                        return res.redirect("/login")
                     })
                 }
 
@@ -62,7 +62,7 @@ router.post('/signup', async (req, res) => {
     }else if (password && passwordRepeat && !isPasswordTheSame) {
         return res.status(400).send({ response: "Passwords do not match. Fields: password and passwordRepeat" });
     } else {
-        return res.status(404).send({ response: "Missing fields: username, password, passwordRepeat" });
+        return res.status(400).send({ response: "Missing fields: username, password, passwordRepeat" });
     }
 })
 
