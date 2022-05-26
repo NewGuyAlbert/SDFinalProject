@@ -1,8 +1,8 @@
-<%- include('../global/header.ejs') %>
+<%- include('../components/header.ejs') %>
 <% if(sessionUser){ %>
-  <%- include('../global/navbarHome.ejs') %>
+  <%- include('../components/navbarUser.ejs') %>
 <% } else{ %>  
-  <%- include('../global/navbarIndex.ejs') %>
+  <%- include('../components/navbarNew.ejs') %>
 <% } %>
 
 <body>
@@ -35,4 +35,4 @@
         </div>
     </div>
 </body>
-<%- include('../global/footer.ejs') %>
+<%- include('../components/footer.ejs') %>

@@ -8,14 +8,14 @@ const app = express()
 app.use(express.json())
 app.use(express.static("views"))
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
 
 // loads db
 const mongoose = require("./dbConnector.js")
 
 
 // session
-const session = require('express-session');
+const session = require('express-session')
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -25,7 +25,7 @@ app.use(session({
         sameSite: true,
         secure: false
     }
-}));
+}))
 
 const rateLimit = require('express-rate-limit');
 const limiter = rateLimit({
@@ -55,22 +55,22 @@ app.use(indexRoute)
 // Redirects
 const goToLoginPage = (req, res, next) => {
     if (!req.session.user) {
-        res.redirect('/login');
+        res.redirect('/login')
     } else {
-        next();
+        next()
     }
 }
 
 // Index
 app.get('/', (req, res) => {
-    return res.render('./global/index.ejs', { sessionUser: req.session.user });
+    return res.render('./pages/index.ejs', { sessionUser: req.session.user })
 })
 
 // Start server
 const PORT = 3000;
 app.listen(PORT, (error) => {
     if (error) {
-        console.log(error);
+        console.log(error)
     }
-    console.log("Server is running on port", PORT);
-});
+    console.log("Server is running on port", PORT)
+})
