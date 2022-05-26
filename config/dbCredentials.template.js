@@ -1,1 +1,0 @@
-module.export = "DB-URI-HERE";
