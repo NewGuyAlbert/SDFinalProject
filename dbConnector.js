@@ -1,9 +1,11 @@
+require('dotenv').config()
+
 const mongoose = require('mongoose')
 
 // connect to cloud database
-const credentials = require("./config/dbCredentials.js")
+const credentials = process.env.MONGODB_URI
 mongoose.connect(
-    credentials.uri,
+    credentials,
     () => {
         console.log("connected to db")
     },

@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
 const express = require('express')
 const app = express()
 
@@ -13,7 +17,7 @@ const mongoose = require("./dbConnector.js")
 // session
 const session = require('express-session');
 app.use(session({
-    secret: require('./config/configSession.json').sessionSecret,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {

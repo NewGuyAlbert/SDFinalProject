@@ -1,20 +1,19 @@
 const router = require('express').Router()
 const nodemailer = require('nodemailer')
 
-const nodemailerCred = require('../config/nodemailerCredentials.js')
 const Admin = require("../models/admin")
 
 function sendEmail(email, code){
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: nodemailerCred.email,
-          pass: nodemailerCred.password
+          user: process.env.EMAILER_EMAIL,
+          pass: process.env.EMAILER_PASSWORD
         }
       });
       
       const mailOptions = {
-        from: nodemailerCred.email,
+        from: process.env.EMAILER_EMAIL,
         to: email,
         subject: 'Two Factor Authentication',
         text: "Hello \nVerification code is: " + code
@@ -30,7 +29,7 @@ function sendEmail(email, code){
 }
 
 const goToAdminPage = (req, res, next) => {
-    if (req.session.user) {
+    if (req.session.admin) {
         res.redirect('/admin')
     } else {
         next()
@@ -92,6 +91,7 @@ router.post("/admin/logintwofa", async (req, res) => {
         if(req.session.adminCode == code){
             req.session.admin = req.session.saveAdmin
             req.session.saveAdmin = undefined
+            
             return res.redirect("/admin")
         } else{
             return res.redirect("/admin/login?error2")
@@ -104,13 +104,15 @@ router.post("/admin/logintwofa", async (req, res) => {
 
 async function verificationCodeTimer(req){
     await sleep(60000)
-    req.session.adminCode = undefined
-    req.session.saveAdmin = undefined
-    req.session.save(err => {
-        if (err) {
-          throw err
-        }
-    })
+    if(req.session.admin == undefined){
+        req.session.adminCode = undefined
+        req.session.saveAdmin = undefined
+        req.session.save(err => {
+            if (err) {
+              throw err
+            }
+        })
+    }
 }
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
