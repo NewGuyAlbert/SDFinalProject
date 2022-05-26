@@ -1,14 +1,14 @@
-<%- include('./header.ejs') %>
+<%- include('../components/header.ejs') %>
 
 <% if(sessionUser){ %>
-    <%- include('./navbarHome.ejs') %>
+    <%- include('../components/navbarUser.ejs') %>
   <% } else{ %>  
-    <%- include('./navbarIndex.ejs') %>
+    <%- include('../components/navbarNew.ejs') %>
 <% } %>
 
 <body>
-    <link rel="stylesheet" type="text/css" href="./global/index.css">
-    <script src="./global/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script src="./index.js"></script>
 
     <div class="outline">
         <div class="main-box subscribe-box">
@@ -23,4 +23,4 @@
 
     </div>
 </body>
-<%- include('./footer.ejs') %>
+<%- include('../components/footer.ejs') %>
