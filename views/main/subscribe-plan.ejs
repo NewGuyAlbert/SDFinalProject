@@ -1,5 +1,10 @@
 <%- include('../global/header.ejs') %>
-<%- include('../global/navbarIndex.ejs') %>
+<% if(sessionUser){ %>
+  <%- include('../global/navbarHome.ejs') %>
+<% } else{ %>  
+  <%- include('../global/navbarIndex.ejs') %>
+<% } %>
+
 <body>
     <h1>Subscription</h1>
     <p>detail explanatino of subscription</p>

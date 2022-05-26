@@ -9,7 +9,7 @@ const saltRounds = 12
 
 const goToHomePage = (req, res, next) => {
     if (req.session.user) {
-        res.redirect('/home')
+        res.redirect('/')
     } else {
         next()
     }
@@ -81,7 +81,7 @@ router.post("/login", async (req, res) => {
                     bcrypt.compare(password, passwordToValidate).then((result) => {
                         if (result) {
                             req.session.user = email
-                            return res.redirect("/home")
+                            return res.redirect("/")
                         } else {
                             return res.redirect("login?error");
                         }

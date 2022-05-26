@@ -61,25 +61,9 @@ const goToLoginPage = (req, res, next) => {
     }
 }
 
-const goToHomePage = (req, res, next) => {
-    if (req.session.user) {
-        res.redirect('/home');
-    } else {
-        next();
-    }
-}
-
 // Index
-app.get('/', goToHomePage, (req, res) => {
+app.get('/', (req, res) => {
     return res.render('./global/index.ejs', { sessionUser: req.session.user });
-})
-
-// Home
-app.get('/home', goToLoginPage, (req, res) => {
-    console.log("session: ", req.sessionID);
-    console.log("user: ", req.session.user);
-
-    return res.render('./global/home.ejs', { sessionUser: req.session.user });
 })
 
 // Start server
