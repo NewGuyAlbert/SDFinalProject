@@ -75,7 +75,7 @@ app.get('/home', goToLoginPage, (req, res) => {
     console.log("session: ", req.sessionID);
     console.log("user: ", req.session.user);
 
-    return res.render('./subscription/select-boardgames.ejs', { sessionUser: req.session.user });
+    return res.render('./global/home.ejs', { sessionUser: req.session.user });
 })
 
 // Start server

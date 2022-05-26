@@ -1,0 +1,59 @@
+<%- include('../global/header.ejs') %>
+<%- include('../global/navbarHome.ejs') %>
+<link rel="stylesheet" type="text/css" href="../main/main.css">
+
+<body>
+
+    <h1>Order</h1>
+
+    <div class="order-details">
+        <p>Order number: <span>#000123</span></p>
+        <p>Order status: <span>processing</span></p>
+        <div>
+            <p>Order items</p>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>pic</td>
+                    <td>Exploding Kittens</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>pic</td>
+                    <td>Exploding Kittens</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>pic</td>
+                    <td>Exploding Kittens</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Mystery Game</th>
+                    <td>pic</td>
+                    <td>Exploding Kittens</td>
+                    <td>1</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="order-user-options">
+        <a href=""><i class="fa-solid fa-ban"></i> Request Cancel </a>
+        <a href=""><i class="fa-solid fa-pen-to-square"></i> Request Edit </a>
+    </div>
+
+
+</body>
+<%- include('../global/footer.ejs') %>

@@ -9,7 +9,7 @@ const goToIndexPage = (req, res, next) => {
 }
 
 router.get('/subscribe-plan', goToIndexPage, (req, res) => {
-    return res.render('./subscription/subscribe-plan.ejs')
+    return res.render('./main/subscribe-plan.ejs')
 })
 
 module.exports = router

@@ -1,0 +1,22 @@
+<%- include('../global/header.ejs') %>
+<%- include('../global/navbarHome.ejs') %>
+<link rel="stylesheet" type="text/css" href="../main/main.css">
+
+<body>
+
+    <div class="select-body">
+        <div class="search-box">
+            <%- include('./search-engine.ejs') %>
+        </div>
+        <div class="selection-box">
+            <h2>Selected Games</h2>
+            <p>Select n games in order to proceed.</p>
+            <div id="cart-items">
+                <!-- './cart-items.ejs' TODO: this needs to be rendered -->
+            </div>
+            <a type="button" class="btn btn-secondary" href="/proceed">Proceed</a>
+        </div>
+    </div>
+</body>
+
+<%- include('../global/footer.ejs') %>
