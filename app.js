@@ -47,19 +47,14 @@ app.use('/admin/login', authLimiter)
 const authRoute = require('./routes/auth.js')
 const adminRoute = require('./routes/admin.js')
 const indexRoute = require('./routes/index.js')
+const redirectRoute = require('./routes/redirect.js')
+
 
 app.use(authRoute)
 app.use(adminRoute)
 app.use(indexRoute)
+app.use(redirectRoute)
 
-// Redirects
-const goToLoginPage = (req, res, next) => {
-    if (!req.session.user) {
-        res.redirect('/login')
-    } else {
-        next()
-    }
-}
 
 // Index
 app.get('/', (req, res) => {

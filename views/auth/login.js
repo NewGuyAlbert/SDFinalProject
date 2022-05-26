@@ -1,7 +1,16 @@
-const queryString = window.location.search
-if (queryString){
+$(function () {
+    if(window.location.href.includes("error")){
         alert("Username or password is incorrect.")
-}
+    }
+
+    // Keep intent
+    let searchParams = new URLSearchParams(window.location.search)
+    let intent = searchParams.get('intent')
+    if(intent){
+        $("#login-form").attr("action", "/login?intent=" + intent)
+        $("#signup-redirect > a").attr("href", "/signup?intent=" + intent)
+    }
+})
 
 function validateLogin() {
 

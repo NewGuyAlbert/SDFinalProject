@@ -20,9 +20,6 @@ router.get('/signup', goToHomePage, (req, res) => {
 })
 
 router.get('/login', goToHomePage, (req, res) => {
-    console.log('session:', req.sessionID)
-    console.log('user:', req.session.user)
- 
     return res.render('./auth/login.ejs')
 })
 
@@ -42,7 +39,11 @@ router.post('/signup', async (req, res) => {
                 const emailFound = await User.find({email: email})
 
                 if(emailFound.length > 0){
-                    return res.redirect("/signup?error")
+                    if(req.query.intent){
+                        return res.redirect(req.originalUrl + "&error")
+                    } else{
+                        return res.redirect("/signup?error")
+                    }
                 } else {
                     const hashedPassword = await bcrypt.hash(password, saltRounds)
                     const newUser = new User({firstName: firstName, lastName: lastName, email: email, password: hashedPassword})
@@ -50,7 +51,12 @@ router.post('/signup', async (req, res) => {
                         console.log("New user added")
                         req.session.user = email
                         req.session.role = "customer"
-                        return res.redirect("/login")
+
+                        if(req.query.intent){
+                            return res.redirect("/redirect?intent=" + req.query.intent)
+                        } else{
+                            return res.redirect("/")
+                        }
                     })
                 }
 
@@ -73,7 +79,11 @@ router.post("/login", async (req, res) => {
         try{
             User.find().where({email: email}).then( async userFound => {
                 if (userFound.length == 0) {
-                    return res.redirect("/login?error")
+                    if(req.query.intent){
+                        return res.redirect(req.originalUrl + "&error")
+                    } else{
+                        return res.redirect("/login?error")
+                    }
                 } else {
                     const matchingPassword = await User.find().where({email: email}).select('password')
                     const passwordToValidate = matchingPassword[0].password;
@@ -81,9 +91,17 @@ router.post("/login", async (req, res) => {
                     bcrypt.compare(password, passwordToValidate).then((result) => {
                         if (result) {
                             req.session.user = email
-                            return res.redirect("/")
+                            if(req.query.intent){
+                                return res.redirect("/redirect?intent=" + req.query.intent)
+                            } else{
+                                return res.redirect("/")
+                            }
                         } else {
-                            return res.redirect("login?error");
+                            if(req.query.intent){
+                                return res.redirect(req.originalUrl + "&error")
+                            } else{
+                                return res.redirect("/login?error")
+                            }
                         }
                     })
                 }
@@ -92,11 +110,19 @@ router.post("/login", async (req, res) => {
 
         } catch (error) {
         console.log(error.message)
-        return res.redirect("login?error");
+        if(req.query.intent){
+            return res.redirect(req.originalUrl + "&error")
+        } else{
+            return res.redirect("/login?error")
+        }
         }
 
     } else {
-        return res.redirect("/login?error");
+        if(req.query.intent){
+            return res.redirect(req.originalUrl + "&error")
+        } else{
+            return res.redirect("/login?error")
+        }
     }
 })
 

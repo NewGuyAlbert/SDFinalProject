@@ -1,6 +1,18 @@
-if(window.location.href.includes("error")){
-    alert("Username or Email already exist");
-}
+$(function () {
+    if(window.location.href.includes("error")){
+        alert("Username or Email already exist")
+    }
+
+    // Keep intent
+    let searchParams = new URLSearchParams(window.location.search)
+    let intent = searchParams.get('intent')
+    if(intent){
+        $("#signup-form").attr("action", "/signup?intent=" + intent)
+        $("#login-redirect > a").attr("href", "/login?intent=" + intent)
+    }
+
+})
+
 
 function validateUser() {
 

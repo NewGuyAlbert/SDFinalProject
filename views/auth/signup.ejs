@@ -8,7 +8,7 @@
 
     <h2 class="card-header">Sign Up</h2>
     <div class="card-body">
-        <form action="/signup" method="POST" name="signupform" onsubmit="return validateUser();">
+        <form id="signup-form" action="/signup" method="POST" name="signupform" onsubmit="return validateUser();">
             <p> 
                 <label for="firstName">Enter First Name: </label>
                 <input type="text" id="firstName" name="firstName" placeholder="Type in your first name.">
@@ -36,7 +36,7 @@
 
     <div id="login-redirect">
         <p>Already have an account?</p>
-        <a href="#">Log in</a>
+        <a href="/login">Log in</a>
     </div>
 
 </div>
