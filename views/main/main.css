@@ -1,0 +1,36 @@
+.select-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-box {
+    width: 70%;
+    min-height: 100vh;
+    padding-left: 10px;
+}
+
+.selection-box {
+    width: 30%;
+    min-height: 100vh;
+    border-left: 1px solid var(--mint);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.card {
+    color: black;
+}
+
+.vertical-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-card > * {
+    padding: 5px;
+}
+
+.table {
+    color: white;
+    padding: 15px;
+}

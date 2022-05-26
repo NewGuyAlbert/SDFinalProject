@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer')
 
 const Admin = require("../models/admin")
 

@@ -44,11 +44,13 @@ app.use('/login', authLimiter)
 app.use('/admin/login', authLimiter)
 
 
-const authRoute = require('./routes/auth.js');
-const adminRoute = require('./routes/admin.js');
+const authRoute = require('./routes/auth.js')
+const adminRoute = require('./routes/admin.js')
+const indexRoute = require('./routes/index.js')
 
-app.use(authRoute);
+app.use(authRoute)
 app.use(adminRoute)
+app.use(indexRoute)
 
 // Redirects
 const goToLoginPage = (req, res, next) => {
@@ -58,6 +60,7 @@ const goToLoginPage = (req, res, next) => {
         next();
     }
 }
+
 const goToHomePage = (req, res, next) => {
     if (req.session.user) {
         res.redirect('/home');
@@ -68,10 +71,15 @@ const goToHomePage = (req, res, next) => {
 
 // Index
 app.get('/', goToHomePage, (req, res) => {
+    return res.render('./global/index.ejs', { sessionUser: req.session.user });
+})
+
+// Home
+app.get('/home', goToLoginPage, (req, res) => {
     console.log("session: ", req.sessionID);
     console.log("user: ", req.session.user);
 
-    return res.render('./global/main.ejs', { sessionUser: req.session.user });
+    return res.render('./global/home.ejs', { sessionUser: req.session.user });
 })
 
 // Start server
