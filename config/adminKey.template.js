@@ -1,1 +1,3 @@
-module.export = "ADMIN-KEY-HERE";
+module.exports = {
+    key: "ADMIN-KEY-HERE"
+}

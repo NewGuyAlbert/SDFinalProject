@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer')
 
-const nodemailerCred = require('../config/nodemailerCredentials.js');
+const nodemailerCred = require('../config/nodemailerCredentials.js')
 const Admin = require("../models/admin")
 
 function sendEmail(email, code){

@@ -1,1 +1,3 @@
-module.export = "DB-URI-HERE";
+module.exports = {
+    uri: "DB-URI-HERE"
+}

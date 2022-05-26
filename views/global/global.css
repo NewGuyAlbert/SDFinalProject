@@ -1,11 +1,23 @@
+:root{
+    --darkblue: #020b4a;
+    --purple: #5500a5;
+    --paleblue: #5e60ce;
+    --lightblue: #48bfe3;
+    --mint: #80ffdb;
+    --grey: #b1d0cf;
+    --ashgreen: #364654;
+    --greenblue: #13788a;
+    --yellow: #ffc021;
+    --orange: #ff8121;
+    --red: #e8442e;
+}
 
 body {
     margin-top: 70px;
-    margin-bottom: 70px;
-    margin-right: 20px;
-    margin-left: 20px;
-    background-color: #262626;
+    margin-bottom: 50px;
+    background-color: var(--darkblue);
     color: white;
+    padding: 0;
 }
 
 h2, h1 {
@@ -20,7 +32,8 @@ h2, h1 {
 }
 
 .navbar-light {
-    background-color: #13788a;
+    height: 70px;
+    background-color: var(--greenblue);
 }
 
 .navbar-light .navbar-brand{
@@ -32,8 +45,9 @@ h2, h1 {
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 50px;
     flex-shrink: none;
-    background-color: #712b80;
+    background-color: var(--ashgreen);
     color: whitesmoke; 
 }
 
