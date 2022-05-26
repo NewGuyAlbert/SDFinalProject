@@ -1,12 +1,14 @@
+require('dotenv').config()
+
 // loads db
 const mongoose = require("../dbConnector.js")
 
 const Admin = require("../models/Admin")
 
-const adminKey = require("../config/adminKey.js")
+const adminKey = process.env.ADMIN_LOGIN_KEY
 
 let newAdmin = new Admin({
-    key: adminKey.key
+    key: adminKey
 })
 
 newAdmin.emails.push({ email: "danilaalbertthefirst@gmail.com"})
