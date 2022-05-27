@@ -59,16 +59,18 @@
 </div>
 
 <div class="boardgames-group">
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div>
-                <p>Available</p>
-                <a href="#"><i class="fa-solid fa-circle-info"></i></a>
-                <a href="#"><i class="fa-solid fa-cart-plus"></i></a>
+    <% items.forEach(function(item){ %>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><%= item.name %></h5>
+                <p class="card-text"><%= item.info.description %></p>
+                <div>
+                    <p><%= item.amount %> Available</p>
+                    <a href="#"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    <% }) %>
 </div>

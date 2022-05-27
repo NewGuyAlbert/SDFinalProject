@@ -1,0 +1,12 @@
+<%- include('../components/header.ejs') %>
+
+<% if(sessionUser){ %>
+    <%- include('../components/navbarUser.ejs') %>
+  <% } else{ %>  
+    <%- include('../components/navbarNew.ejs') %>
+<% } %>
+
+
+<h1>About</h1>
+
+<%- include('../components/footer.ejs') %>

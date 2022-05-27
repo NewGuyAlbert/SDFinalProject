@@ -9,16 +9,17 @@ const goToLoginPage = (req, res, next) => {
 }
 
 router.get('/redirect', goToLoginPage, (req, res) => {
-    console.log(req.query.intent)
     if(req.query.intent){
         switch(req.query.intent) {
             case "shop":
                 res.redirect('/shop')
+                break
             default:
-                return res.redirect('/')
+                res.redirect('/')
+                break
         }
     } else{
-        return res.redirect('/')
+        res.redirect('/')
     }
 })
 
