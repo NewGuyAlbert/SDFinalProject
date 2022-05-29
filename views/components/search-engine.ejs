@@ -10,7 +10,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                
+                <p class="modal-body-item" id="modal-description"><span></span></p>
+                <p class="modal-body-item" id="modal-genre"><i class="fa-solid fa-box-archive"></i><span></span></p>
+                <p class="modal-body-item" id="modal-noOfPlayers"><i class="fa-solid fa-users"></i><span></span></p>
+                <p class="modal-body-item" id="modal-duration"><i class="fa-solid fa-hourglass"></i><span></span></p>
+                <p class="modal-body-item" id="modal-ageLimit"><i class="fa-solid fa-child"></i><span></span></p>
+                <p class="modal-body-item" id="modal-language"><i class="fa-solid fa-globe"></i><span></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -88,17 +96,17 @@
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text"><%= item.info.description %></p>
-                <div class="boardgame-options">
-                    <p><i class="fa-solid fa-box-archive"></i> <%= (item.info.genre).toString() %></p>
-                    <p><i class="fa-solid fa-users"></i> <%= item.info.noOfPlayersMin %> to <%= item.info.noOfPlayersMax %></p>
-                    <p><i class="fa-solid fa-hourglass"></i> <%= item.info.durationMin %> to <%= item.info.durationMax %></p>
-                    <p><i class="fa-solid fa-child"></i> <%= item.info.ageLimit %> +</p>
-                    <p><i class="fa-solid fa-globe"></i> <%= item.info.language %></p>
+                <div class="boardgame-details">
+                    <p id="<%= item._id %>-description" style="display: none;"><%= item.info.description %></p>
+                    <p id="<%= item._id %>-genre" style="display: none;"><%= (item.info.genre).toString() %></p>
+                    <p id="<%= item._id %>-noOfPlayers" style="display: none;"><%= item.info.noOfPlayersMin %> to <%= item.info.noOfPlayersMax %></p>
+                    <p id="<%= item._id %>-duration" style="display: none;"><%= item.info.durationMin %> to <%= item.info.durationMax %></p>
+                    <p id="<%= item._id %>-ageLimit" style="display: none;"><%= item.info.ageLimit %>+</p>
+                    <p id="<%= item._id %>-language" style="display: none;">English</p>
                 </div>
                 <div class="user-buttons">
-                    <p><%= item.amount %> Available</p>
-                    <a class="infobtn" onclick='displayInfoModal("<%= item.name %>", "<%= item.info.description %>")'><i class="fa-solid fa-circle-info"></i></a>
+                    <p id="<%= item._id %>-available-<%= item.amount %>">Available</p>
+                    <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                     <a><i class="fa-solid fa-cart-plus"></i></a>
                 </div>
             </div>

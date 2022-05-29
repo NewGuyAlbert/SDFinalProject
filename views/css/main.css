@@ -89,3 +89,15 @@
     color: var(--whitemint);
     border: 1px solid var(--whitemint);
 }
+
+.modal-header > * {
+    color: black;
+}
+
+.modal-body-item {
+    color: black;
+}
+
+.modal-body-item > span{
+    margin-left: 5px;
+}
