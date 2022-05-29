@@ -1,27 +1,19 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-</button>
-  
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
+<div class="modal fade" id="bg-info-modal" tabindex="-1" role="dialog" aria-labelledby="bg-info-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bg-info-modal-title"> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-        ...
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
-    </div>
-</div>
 </div>
 
 
@@ -101,13 +93,13 @@
                     <p><i class="fa-solid fa-box-archive"></i> <%= (item.info.genre).toString() %></p>
                     <p><i class="fa-solid fa-users"></i> <%= item.info.noOfPlayersMin %> to <%= item.info.noOfPlayersMax %></p>
                     <p><i class="fa-solid fa-hourglass"></i> <%= item.info.durationMin %> to <%= item.info.durationMax %></p>
-                    <p><i class="fa-solid fa-child"></i> <%= item.info.ageLimit %> or older</p>
-                    <!-- <p><i class="fa-solid fa-globe"></i>language</p> -->
+                    <p><i class="fa-solid fa-child"></i> <%= item.info.ageLimit %> +</p>
+                    <p><i class="fa-solid fa-globe"></i> <%= item.info.language %></p>
                 </div>
                 <div class="user-buttons">
                     <p><%= item.amount %> Available</p>
-                    <a href="#"><i class="fa-solid fa-circle-info"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                    <a class="infobtn" onclick='displayInfoModal("<%= item.name %>", "<%= item.info.description %>")'><i class="fa-solid fa-circle-info"></i></a>
+                    <a><i class="fa-solid fa-cart-plus"></i></a>
                 </div>
             </div>
         </div>
