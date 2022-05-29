@@ -1,9 +1,19 @@
 :root{
     --darkblue: #020b4a;
+    --darkashblue: #1d213d;
     --purple: #5500a5;
+    --lightpurple: #7400b8;
+    --purpleblue: #6930c3;
     --paleblue: #5e60ce;
+    --ashblue: #5390d9;
+    --lightashblue:#4ea8de;
     --lightblue: #48bfe3;
+    --darkmint: #56cfe1;
+    --lightmint: #64dfdf;
+    --brightmint: #72efdd;
     --mint: #80ffdb;
+    --palemint: #aaffe7;
+    --whitemint: #d5fff3;
     --grey: #b1d0cf;
     --ashgreen: #364654;
     --greenblue: #13788a;

@@ -19,7 +19,6 @@ boardgameArray.push({
         durationMax: 20,
         ageLimit: 7,
         language: "English"
-
     },
     image: [],
     dimension: {
@@ -41,7 +40,6 @@ boardgameArray.push({
         durationMax: 20,
         ageLimit: 7,
         language: "English"
-
     },
     image: [],
     dimension: {

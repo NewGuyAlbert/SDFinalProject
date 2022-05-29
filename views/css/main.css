@@ -34,3 +34,70 @@
     color: white;
     padding: 15px;
 }
+
+#search-engine-title {
+    text-shadow: 1.5px 1.5px var(--lightblue);
+}
+
+#search-bars {
+    width: 98%;
+    height: 3rem;
+    margin: 5px;
+}
+
+#search-bar-prepend-text {
+    background-color: var(--paleblue);
+    color: var(--whitemint);
+    border: 1px solid var(--whitemint);
+}
+
+#search-input {
+    width: 90%;
+    height: 3rem;
+    border: 1px solid var(--whitemint);
+}
+
+.search-bar-append > button {
+    right: 0;
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--paleblue);
+    color: var(--whitemint);
+    border-radius: 0 5px 5px 0;
+    border: 1px solid var(--whitemint);
+}
+
+.search-bar-append > button:hover {
+    color: var(--whitemint);
+    background-color: var(--lightpurple);
+}
+
+.options-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.options-group > .dropdown {
+    min-width: 9rem;
+}
+
+.options-group > .dropdown > button {
+    width: 100%;
+    background-color: var(--ashgreen);
+    color: var(--whitemint);
+    border: 1px solid var(--whitemint);
+}
+
+.modal-header > * {
+    color: black;
+}
+
+.modal-body-item {
+    color: black;
+}
+
+.modal-body-item > span{
+    margin-left: 5px;
+}

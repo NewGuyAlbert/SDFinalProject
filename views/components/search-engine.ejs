@@ -1,8 +1,40 @@
-<h2>Search board games</h2>
 
-<div class="search-bars">
-    <input class="search-input" type="text" placeholder="Type in the name of the board game." name="search">
-    <button class="btn btn-dark" ><i class="fa fa-search"></i></button>
+<!-- Modal -->
+<div class="modal fade" id="bg-info-modal" tabindex="-1" role="dialog" aria-labelledby="bg-info-modal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bg-info-modal-title"> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-body-item" id="modal-description"><span></span></p>
+                <p class="modal-body-item" id="modal-genre"><i class="fa-solid fa-box-archive"></i><span></span></p>
+                <p class="modal-body-item" id="modal-noOfPlayers"><i class="fa-solid fa-users"></i><span></span></p>
+                <p class="modal-body-item" id="modal-duration"><i class="fa-solid fa-hourglass"></i><span></span></p>
+                <p class="modal-body-item" id="modal-ageLimit"><i class="fa-solid fa-child"></i><span></span></p>
+                <p class="modal-body-item" id="modal-language"><i class="fa-solid fa-globe"></i><span></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h2 id="search-engine-title">Search board games</h2>
+
+<div id="search-bars" class="input-group mb-3">
+    <div id="search-bar-prepend" class="input-group-prepend">
+      <span id="search-bar-prepend-text" class="input-group-text" id="inputGroup-sizing-default">Search board games</span>
+    </div>
+    <input id="search-input" type="text" class="form-control" placeholder="Type in the name of the board game." name="search" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    <div class="search-bar-append">
+        <button class="btn" type="button"><i class="fa fa-search"></i></button>
+    </div>
 </div>
 
 <div class="options-group">
@@ -64,11 +96,18 @@
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text"><%= item.info.description %></p>
-                <div>
-                    <p><%= item.amount %> Available</p>
-                    <a href="#"><i class="fa-solid fa-circle-info"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                <div class="boardgame-details">
+                    <p id="<%= item._id %>-description" style="display: none;"><%= item.info.description %></p>
+                    <p id="<%= item._id %>-genre" style="display: none;"><%= (item.info.genre).toString() %></p>
+                    <p id="<%= item._id %>-noOfPlayers" style="display: none;"><%= item.info.noOfPlayersMin %> to <%= item.info.noOfPlayersMax %></p>
+                    <p id="<%= item._id %>-duration" style="display: none;"><%= item.info.durationMin %> to <%= item.info.durationMax %></p>
+                    <p id="<%= item._id %>-ageLimit" style="display: none;"><%= item.info.ageLimit %>+</p>
+                    <p id="<%= item._id %>-language" style="display: none;">English</p>
+                </div>
+                <div class="user-buttons">
+                    <p id="<%= item._id %>-available-<%= item.amount %>">Available</p>
+                    <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
+                    <a><i class="fa-solid fa-cart-plus"></i></a>
                 </div>
             </div>
         </div>
