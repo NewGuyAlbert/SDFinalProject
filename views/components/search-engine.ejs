@@ -105,9 +105,20 @@
                     <p id="<%= item._id %>-language" style="display: none;">English</p>
                 </div>
                 <div class="user-buttons">
-                    <p id="<%= item._id %>-available-<%= item.amount %>">Available</p>
-                    <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
-                    <a onclick="addToCart('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
+             
+                    <% if(item.amount > 3){ %>
+                        <p>Available</p>
+                        <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
+                        <a onclick="addToCart('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
+                    <% } else if(item.amount > 0){ %>
+                        <p>Available - only a few left</p>
+                        <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
+                        <a onclick="addToCart('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
+                    <% } else{ %>  
+                        <p>Unavailable</p>
+                        <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
+                    <% } %>
+                
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== 'production'){
 const express = require('express')
 const app = express()
 
-app.use(express.json())
+app.use(express.json({verify: (req,res,buf) => { req.rawBody = buf }}))
 app.use(express.static("views"))
 
 app.set('view engine', 'ejs')
@@ -22,7 +22,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         maxAge: 1000 * 60 * 60,
-        sameSite: true,
+        sameSite: false,
         secure: false
     }
 }))
@@ -49,6 +49,8 @@ const adminRoute = require('./routes/admin.js')
 const mainRoute = require('./routes/main.js')
 const redirectRoute = require('./routes/redirect.js')
 const cartRoute = require('./routes/api/cart.js')
+const checkoutRoute = require('./routes/checkout.js')
+const stripeRoute = require('./routes/stripe.js')
 
 
 app.use(authRoute)
@@ -56,6 +58,10 @@ app.use(adminRoute)
 app.use(mainRoute)
 app.use(redirectRoute)
 app.use(cartRoute)
+app.use(checkoutRoute)
+app.use(stripeRoute)
+
+
 
 
 // Index

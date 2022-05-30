@@ -50,6 +50,27 @@ boardgameArray.push({
     price: 180
 
 })
+boardgameArray.push({
+    name: "Secret hitler",
+    info: {
+        genre: ["Card Game", "Bluffing"],
+        description: `Mafia type game`,
+        noOfPlayersMin: 5,
+        noOfPlayersMax: 9,
+        durationMin: 20,
+        durationMax: 600,
+        ageLimit: 7,
+        language: "English"
+    },
+    image: [],
+    dimension: {
+        heigth:4,
+        width:6,
+        length:12,
+    },
+    price: 200
+
+})
 
 async function saveBoardgames(){
     for(let boardgame of boardgameArray){

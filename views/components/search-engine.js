@@ -1,4 +1,3 @@
-
 function displayInfoModal(id, name) {
     $("#bg-info-modal-title").html(name)
     $("#modal-description > span").html($(`#${id}-description`).html())
