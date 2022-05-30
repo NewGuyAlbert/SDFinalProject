@@ -48,12 +48,14 @@ const authRoute = require('./routes/auth.js')
 const adminRoute = require('./routes/admin.js')
 const mainRoute = require('./routes/main.js')
 const redirectRoute = require('./routes/redirect.js')
+const cartRoute = require('./routes/api/cart.js')
 
 
 app.use(authRoute)
 app.use(adminRoute)
 app.use(mainRoute)
 app.use(redirectRoute)
+app.use(cartRoute)
 
 
 // Index
