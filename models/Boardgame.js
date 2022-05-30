@@ -1,5 +1,7 @@
 const mongoose = require("mongoose")
 
+const genres = require('./BoardgameGenre.js')
+
 const boardgameSchema= new mongoose.Schema({
     name: {
         type: String,
@@ -9,9 +11,7 @@ const boardgameSchema= new mongoose.Schema({
     info: {
         genre:[{
             type: String,
-            enum: ["Strategy", "Adventure", "Bluffing", "Card Game", "Dice",
-                "Exploration", "Fantasy", "Mafia", "Science Fiction", "Misc",
-                "Trivia", "Humor", "Children's Game", "Expansion", "Medieval", "Puzzle"],
+            enum: genres,
             required: true,
             default: "Misc",
         }],

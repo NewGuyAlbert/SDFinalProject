@@ -9,7 +9,6 @@
     "seed-admin": "node ./seeds/seedAdmin.js",
     "seed-boardgame": "node ./seeds/seedBoardgame.js",
     "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js"
-
   },
   "repository": {
     "type": "git",
@@ -30,7 +29,8 @@
     "express-session": "^1.17.3",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
-    "nodemailer": "^6.7.5"
+    "nodemailer": "^6.7.5",
+    "stripe": "^9.5.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.1"
