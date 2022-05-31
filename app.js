@@ -32,16 +32,16 @@ const limiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
     max: 100 // limit each IP to 100 requests per windowMs
 });
-app.use(limiter)
+// app.use(limiter)
 
 const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 40 // limit each IP to 8 requests per windowMs
 });
 app.use(express.urlencoded({ extended: false }))
-app.use('/signup', authLimiter)
-app.use('/login', authLimiter)
-app.use('/admin/login', authLimiter)
+// app.use('/signup', authLimiter)
+// app.use('/login', authLimiter)
+// app.use('/admin/login', authLimiter)
 
 
 const authRoute = require('./routes/auth.js')
