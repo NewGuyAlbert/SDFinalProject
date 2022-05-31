@@ -2,8 +2,8 @@ const router = require('express').Router()
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
-// This is your Stripe CLI webhook secret for testing your endpoint locally.
-const endpointSecret = "whsec_0235a20d59f6021bdcdf83a6d1db8439a093c784491bb7917d015ab9a6abae85";
+// This is your Stripe CLI webhook secret
+const endpointSecret = process.env.WEBHOOK_PURCHASE
 
 router.post('/purchase-webhook', (req, res) =>{
     const payload = req.rawBody
