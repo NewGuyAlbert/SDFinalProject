@@ -40,7 +40,7 @@ router.get('/admin', (req, res) => {
     return res.render('./pages/admin-index.ejs')
 })
 
-router.get('/admin/dashboard', (req, res) => {
+router.get('/admin/dashboard', goToAdminPage, (req, res) => {
     return res.render('./pages/admin-dashboard.ejs', { sessionAdmin: req.session.admin })
 })
 
