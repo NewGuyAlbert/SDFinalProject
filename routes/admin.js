@@ -30,11 +30,19 @@ function sendEmail(email, code){
 
 const goToAdminPage = (req, res, next) => {
     if (req.session.admin) {
-        res.redirect('/admin')
+        res.redirect('/admin/dashboard')
     } else {
-        next()
+        res.redirect('/admin/login')
     }
 }
+
+router.get('/admin', (req, res) => {
+    return res.render('./pages/admin-index.ejs')
+})
+
+router.get('/admin/dashboard', (req, res) => {
+    return res.render('./pages/admin-dashboard.ejs', { sessionAdmin: req.session.admin })
+})
 
 router.get('/admin/login', goToAdminPage, (req, res) => {
     return res.render('./admin/login.ejs')
