@@ -8,7 +8,8 @@
     "start-dev": "nodemon app.js",
     "seed-admin": "node ./seeds/seedAdmin.js",
     "seed-boardgame": "node ./seeds/seedBoardgame.js",
-    "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js"
+    "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js",
+    "purchase-webhook": "stripe listen --forward-to localhost:3000/purchase-webhook"
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,8 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.1"
+  },
+  "engines": {
+    "node": "16.15.0"
   }
 }

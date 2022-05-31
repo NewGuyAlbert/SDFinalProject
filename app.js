@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
 })
 
 // Start server
-const PORT = 3000;
+const PORT = process.env.PORT ? process.env.PORT : 3000;
 app.listen(PORT, (error) => {
     if (error) {
         console.log(error)
