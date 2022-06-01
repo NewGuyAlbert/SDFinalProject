@@ -32,16 +32,17 @@ const goToAdminPage = (req, res, next) => {
     if (req.session.admin) {
         res.redirect('/admin/dashboard')
     } else {
-        res.redirect('/admin/login')
+        next()
     }
 }
 
 router.get('/admin', (req, res) => {
-    return res.render('./pages/admin-index.ejs')
+    return res.render('./admin/admin-index.ejs')
 })
 
-router.get('/admin/dashboard', goToAdminPage, (req, res) => {
-    return res.render('./pages/admin-dashboard.ejs', { sessionAdmin: req.session.admin })
+// TODO: goToAdminPage,
+router.get('/admin/dashboard', (req, res) => {
+    return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true })
 })
 
 router.get('/admin/login', goToAdminPage, (req, res) => {
@@ -108,6 +109,26 @@ router.post("/admin/logintwofa", async (req, res) => {
         return res.status(400).send({ response: "Missing fields: code" })
 
     }
+})
+
+// TODO: goToAdminPage,
+router.get('/admin/boardgame', (req, res) => {
+    return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true, orderTable: false, subscriptionTable: false })
+})
+
+// TODO: goToAdminPage,
+router.get('/admin/order', (req, res) => {
+    return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: false, orderTable: true, subscriptionTable: false })
+})
+
+// TODO: goToAdminPage,
+router.get('/admin/subscription', (req, res) => {
+    return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: false, orderTable: false, subscriptionTable: true })
+})
+
+router.get('/admin/logout', (req, res) => {
+    // TODO: clear session data
+    return res.redirect("/admin")
 })
 
 async function verificationCodeTimer(req){

@@ -59,17 +59,6 @@
 
 .search-bar-append > button {
     right: 0;
-    height: 3rem;
-    width: 3rem;
-    background-color: var(--paleblue);
-    color: var(--whitemint);
-    border-radius: 0 5px 5px 0;
-    border: 1px solid var(--whitemint);
-}
-
-.search-bar-append > button:hover {
-    color: var(--whitemint);
-    background-color: var(--lightpurple);
 }
 
 .options-group {
