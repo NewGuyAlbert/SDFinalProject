@@ -1,5 +1,7 @@
 const router = require('express').Router()
 
+const nodemailer = require('nodemailer')
+
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 // This is your Stripe CLI webhook secret
@@ -44,7 +46,8 @@ router.post('/purchase-webhook', async (req, res) =>{
             })
             
             //Expire session in ms
-            await sleep(1000 * 30)
+            //30 minutes time to complete a purchase
+            await sleep(1000 * 60 * 30)
         
             //Expire current session
             stripe.checkout.sessions.list({
@@ -90,7 +93,22 @@ router.post('/purchase-webhook', async (req, res) =>{
         }
 
         let order = new Order(newOrder)
-        await order.save()
+        const orderId = await order.save()
+
+        //Send email with confirmation of purchase
+        //Grab item names
+        const Boardgame = require("../models/Boardgame")
+        const BoardgameItem = require("../models/BoardgameItem")
+
+        let itemsName = []
+
+        for(let itemId of items){
+            let data = await BoardgameItem.find({_id: itemId}).select("boardgameId").limit(1)
+            itemsName.push(await Boardgame.find({_id: data[0].boardgameId}).select("name").limit(1))
+        }
+
+        //email + items + order id
+        sendOrderConfirmationEmail(data.customer_details.email, itemsName, orderId._id)
 
     }
 
@@ -113,4 +131,35 @@ function sleep(ms) {
 async function unReserve(id){
     const BoardgameItem = require("../models/BoardgameItem")
     await BoardgameItem.updateOne({_id: id}, {$set: {isAvailable: true}})
+}
+
+function sendOrderConfirmationEmail(email, items, orderNumber){
+
+    let text = ""
+    for(let item of items){
+        text +="- " + item[0].name + "\n"
+    }
+
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAILER_EMAIL,
+          pass: process.env.EMAILER_PASSWORD
+        }
+      });
+      
+      const mailOptions = {
+        from: process.env.EMAILER_EMAIL,
+        to: email,
+        subject: 'Order receipt',
+        text: "Hello \nThank you for purchasing from us \n Your items are:\n" + text + "Your order number is:" + orderNumber
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
 }
