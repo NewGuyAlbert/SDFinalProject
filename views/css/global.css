@@ -41,6 +41,30 @@ h2, h1 {
     color: white;
 }
 
+.btn-primary {
+    background-color: var(--paleblue);
+    color: var(--whitemint);
+    border-radius: 0 5px 5px 0;
+    border: 1px solid var(--whitemint);
+}
+
+.btn-primary:hover {
+    color: var(--whitemint);
+    background-color: var(--lightpurple);
+}
+
+.btn-secondary {
+    background-color: var(--mint);
+    color: var(--purple);
+    border: 1px solid var(--lightashblue);
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-secondary:hover {
+    color: var(--purple);
+    background-color: var(--darkmint);
+}
+
 .navbar-light {
     height: 70px;
     background-color: var(--greenblue);

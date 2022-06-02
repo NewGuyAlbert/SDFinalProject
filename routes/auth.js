@@ -128,7 +128,9 @@ router.post("/login", async (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.session.destroy((error) => {
-        console.log("Error happend when logging out:", error);
+        if(error){
+            console.log("Error happend when logging out:", error.message);
+        }
     });
     return res.redirect('/');
 });

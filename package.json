@@ -4,12 +4,13 @@
   "description": "Final Project for Software Development Top-up",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon app.js",
     "seed-admin": "node ./seeds/seedAdmin.js",
     "seed-boardgame": "node ./seeds/seedBoardgame.js",
-    "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js"
-
+    "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js",
+    "purchase-webhook": "stripe listen --forward-to localhost:3000/purchase-webhook"
   },
   "repository": {
     "type": "git",
@@ -30,9 +31,13 @@
     "express-session": "^1.17.3",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
-    "nodemailer": "^6.7.5"
+    "nodemailer": "^6.7.5",
+    "stripe": "^9.5.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.1"
+  },
+  "engines": {
+    "node": "16.15.0"
   }
 }

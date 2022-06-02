@@ -1,0 +1,17 @@
+.adminNavOption {
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.adminNavOption:hover {
+    color: var(--lightmint);
+}
+
+body {
+    padding: 10px;
+}
+
+th, td {
+    color: white;
+}

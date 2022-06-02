@@ -26,7 +26,7 @@ boardgameArray.push({
         width:6.38,
         length:1.5,
     },
-    price: 200
+    price: 20000
 
 })
 boardgameArray.push({
@@ -47,7 +47,28 @@ boardgameArray.push({
         width:6.38,
         length:1.5,
     },
-    price: 180
+    price: 18000
+
+})
+boardgameArray.push({
+    name: "Secret hitler",
+    info: {
+        genre: ["Card Game", "Bluffing"],
+        description: `Mafia type game`,
+        noOfPlayersMin: 5,
+        noOfPlayersMax: 9,
+        durationMin: 20,
+        durationMax: 600,
+        ageLimit: 7,
+        language: "English"
+    },
+    image: [],
+    dimension: {
+        heigth:4,
+        width:6,
+        length:12,
+    },
+    price: 20000
 
 })
 

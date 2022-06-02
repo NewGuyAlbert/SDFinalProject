@@ -12,7 +12,7 @@ router.get('/shop', async (req, res) => {
 
         return res.render('./pages/shop-boardgames.ejs', {sessionUser: req.session.user, items: availableBoardgames})
     } else{
-        return res.redirect('/signup?intent=shop')
+        return res.redirect('/login?intent=shop')
     }
 })
 

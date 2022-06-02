@@ -1,0 +1,25 @@
+<%- include('../components/header.ejs') %>
+<%- include('./navbarAdmin.ejs') %>
+<link rel="stylesheet" type="text/css" href="../css/admin.css">
+
+<body>
+
+  <%- include('./modal-boardgame.ejs') %>
+  <%- include('./modal-order.ejs') %>
+  <%- include('./modal-subscription.ejs') %>
+  
+  <!-- Table -->
+  <div id="tableBodyDiv">
+    <% if(boardgameTable){ %>
+      <%- include('./table-boardgame.ejs') %>
+    <% } else if(orderTable){ %>  
+      <%- include('./table-order.ejs') %>
+    <% } else if(subscriptionTable){%>
+      <%- include('./table-subscription.ejs') %>
+    <% } else {%>
+      <%- include('./table-boardgame.ejs') %>
+    <% }%>
+  </div>
+
+</body>
+<%- include('../components/footer.ejs') %>
