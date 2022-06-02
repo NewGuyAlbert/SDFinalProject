@@ -1,9 +1,8 @@
 const mongoose = require("mongoose")
 
 const orderSchema = new mongoose.Schema({
-    customerId:{
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "User",
+    customerStripeId:{
+        type: String,
         required: true,
     },
     orderStatus:{
@@ -25,7 +24,6 @@ const orderSchema = new mongoose.Schema({
         },
         state: {
             type: String,
-            required: true,
         },
         city: {
             type: String,

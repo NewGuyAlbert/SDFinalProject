@@ -45,7 +45,7 @@ router.get('/admin/dashboard', (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true })
 })
 
-router.get('/admin/login', goToAdminPage, (req, res) => {
+router.get('/admin/login', (req, res) => {
     return res.render('./admin/login.ejs')
 })
 
