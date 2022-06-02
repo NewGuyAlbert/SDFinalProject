@@ -19,7 +19,7 @@ function addToCart(id, name) {
     }).done( function(response){
         console.log("Added to cart")
         $("#cart-items").append(`<div><p>${name}</p> <a type="button" onclick="removeFromCart('${id}','${name}')">remove</a></div>`)
-
+        
 
     }).fail( function(error){
         console.log(error.responseText)
