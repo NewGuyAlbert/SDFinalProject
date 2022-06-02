@@ -26,7 +26,7 @@ boardgameArray.push({
         width:6.38,
         length:1.5,
     },
-    price: 200
+    price: 20000
 
 })
 boardgameArray.push({
@@ -47,7 +47,7 @@ boardgameArray.push({
         width:6.38,
         length:1.5,
     },
-    price: 180
+    price: 18000
 
 })
 boardgameArray.push({
@@ -68,7 +68,7 @@ boardgameArray.push({
         width:6,
         length:12,
     },
-    price: 200
+    price: 20000
 
 })
 

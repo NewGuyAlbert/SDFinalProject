@@ -44,7 +44,7 @@ router.get('/admin/dashboard', goToAdminPage, (req, res) => {
     return res.render('./pages/admin-dashboard.ejs', { sessionAdmin: req.session.admin })
 })
 
-router.get('/admin/login', goToAdminPage, (req, res) => {
+router.get('/admin/login', (req, res) => {
     return res.render('./admin/login.ejs')
 })
 
