@@ -1,0 +1,37 @@
+<!-- boardgame Modal -->
+<div class="modal fade" id="admin-odmodal" tabindex="-1" role="dialog" aria-labelledby="admin-odmodal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="admin-odmodal-title"> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!-- TODO: record delivery start timestamp when the status changes into delivery started -->
+            <div class="admin-odmodal-body">
+                <p class="modal-body-item" id="modal-language">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Order Status
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <button class="dropdown-item" type="button">Pending</button>
+                      <button class="dropdown-item" type="button">Order Confirmed</button>
+                      <button class="dropdown-item" type="button">Processing</button>
+                      <button class="dropdown-item" type="button">Shipped</button>
+                      <button class="dropdown-item" type="button">On the way</button>
+                      <button class="dropdown-item" type="button">Delivered</button>
+                      <button class="dropdown-item" type="button">Returning</button>
+                      <button class="dropdown-item" type="button">Returned</button>
+                    </div>
+                  </div>
+                </p>
+            </div>
+            <div class="admin-odmodal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+                <button type="button" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+            </div>
+        </div>
+    </div>
+  </div>

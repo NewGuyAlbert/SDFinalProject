@@ -1,0 +1,88 @@
+<!-- boardgame Modal -->
+<div class="modal fade" id="admin-bgmodal" tabindex="-1" role="dialog" aria-labelledby="admin-bgmodal-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="admin-bgmodal-title"> </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="admin-bgmodal-body">
+                <p class="modal-body-item" id="modal-bgname">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Boardgame title</span>
+                    </div>
+                    <input id="bg-title-input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                </p>
+                <p class="modal-body-item" id="modal-description">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Description</span>
+                    </div>
+                    <textarea class="form-control" aria-label="Description"></textarea>
+                  </div>
+                </p>
+                <p class="modal-body-item" id="modal-genre">
+                  <div id="genre-checkbox-div">
+                    <p>Select Genre</p>
+                    <input type="checkbox" id="genre1" name="interest" value="genre1">
+                    <label for="genre1">Genre1</label>
+                  </div>
+                </p>
+                <p class="modal-body-item" id="modal-noOfPlayers">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Minimum number of players</span>
+                    </div>
+                    <input id="min-player-input" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" min="1" max="10">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Maximum number of players</span>
+                    </div>
+                    <input id="max-player-input" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" min="2" max="30">
+                  </div>
+                </p>
+                <p class="modal-body-item" id="modal-duration">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Minimum duration</span>
+                    </div>
+                    <input id="min-duration-input" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" min="1" max="30">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Maximum duration</span>
+                    </div>
+                    <input id="max-duration-input" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" min="10">
+                  </div>
+                </p>
+                <p class="modal-body-item" id="modal-ageLimit">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Age limit</span>
+                    </div>
+                    <input id="age-limit-input" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                </p>
+                <p class="modal-body-item" id="modal-language">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Language
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <button class="dropdown-item" type="button">English</button>
+                    </div>
+                  </div>
+                </p>
+            </div>
+            <div class="admin-bgmodal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+                <button type="button" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+            </div>
+        </div>
+    </div>
+  </div>

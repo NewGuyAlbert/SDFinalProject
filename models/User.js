@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
+
+    customerStripeId:String,
     firstName: String,
     lastName: String,
     password: String,
@@ -8,6 +10,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         lowercase: true,
+        unique: true,
     },
     address: {
         country: String,
