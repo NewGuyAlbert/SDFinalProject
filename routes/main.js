@@ -13,7 +13,11 @@ router.get('/shop', async (req, res) => {
 
         const availableBoardgames = await getAvailableBoardgames("New")
 
-        return res.render('./pages/shop-boardgames.ejs', {sessionUser: req.session.user, items: availableBoardgames})
+        return res.render('./pages/shop-boardgames.ejs', {
+            sessionUser: req.session.user, 
+            items: availableBoardgames,
+            subscriptionName: false
+        })
     } else{
         return res.redirect('/login?intent=shop')
     }
