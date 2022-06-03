@@ -1,8 +1,8 @@
 <%- include('../components/header.ejs') %>
 <%- include('../components/navbarUser.ejs') %>
-<link rel="stylesheet" type="text/css" href="../css/main.css">
 
-<script src="../components/search-engine-shop.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<script src="../components/search-engine-subscribe.js"></script>
 
 <body>
     <div class="select-body">
@@ -10,13 +10,13 @@
             <%- include('../components/search-engine.ejs') %>
         </div>
         <div class="selection-box">
-            <h2>Your Cart</h2>
+            <h2>Your Selection</h2>
             <h5>Items</h5>
             <div id="cart-items">
-                <!-- Content will be pushed here dynamically -->
+                <!-- Content will be pushed here dinamically -->
             </div>
             <h5>Total: <span id="total-price">0</span>kr</h5>
-            <a id="checkoutButton" type="button" class="btn btn-warning" href="/checkout">Proceed to Checkout <i class="fa-solid fa-credit-card"></i></a>
+            <a id="subscribeButton" type="button" class="btn btn-warning" href="/checkout-subscribe">Proceed to Checkout <i class="fa-solid fa-credit-card"></i></a>
 
         </div>
     </div>
