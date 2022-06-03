@@ -95,7 +95,7 @@
         <!-- TODO: get the price to calculate the total price, and also to display it on the card -->
         <!--  console.log(item)   -->
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+            <img class="card-img-top" src="<%= item.image[0] %>" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title"><%= item.name %></h5>
                 <div class="boardgame-details">
@@ -105,6 +105,7 @@
                     <p id="<%= item._id %>-duration" style="display: none;"><%= item.info.durationMin %> to <%= item.info.durationMax %></p>
                     <p id="<%= item._id %>-ageLimit" style="display: none;"><%= item.info.ageLimit %>+</p>
                     <p id="<%= item._id %>-language" style="display: none;">English</p>
+                    <p id="<%= item._id %>-price" style="display: none;"><%= item.price %></p>
                 </div>
                 <div class="user-buttons">
                     <% if(item.amount > 3){ %>

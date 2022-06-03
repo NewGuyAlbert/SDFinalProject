@@ -14,6 +14,7 @@ router.post('/purchase-webhook', async (req, res) =>{
     let event
 
     try {
+        //Validate that the request came from stripe
         event = stripe.webhooks.constructEvent(payload, sig, endpointSecret)
     } catch (err){
         console.log(err.message)
