@@ -8,31 +8,18 @@
 <body>
     <h1>Subscription</h1>
     <p>detail explanatino of subscription</p>
-    <div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">subscription title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="/signup" class="btn btn-primary">Go somewhere</a>
-            </div>
+
+    <% subscriptionTypes.forEach(function(subscription){ %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title" style="color: black;"><%-subscription.name%></h5>
+          <p class="card-text"><%-subscription.description%></p>
+          <p class="card-price" style="color: black;"><%-subscription.price/100%> DKK</p>
+          <a href="/subscribe?plan=<%-subscription.plan%>" class="btn btn-primary">Start</a>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">subscription title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="/signup" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">subscription title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="/signup" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
+      </div>
+    <% }) %>
+
 </body>
 <%- include('../components/footer.ejs') %>

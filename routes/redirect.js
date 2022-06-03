@@ -14,6 +14,13 @@ router.get('/redirect', goToLoginPage, (req, res) => {
             case "shop":
                 res.redirect('/shop')
                 break
+            case "subscribe":
+                if(req.query.plan){
+                    res.redirect(`/subscribe?plan=${req.query.plan}`)
+                } else{
+                    res.redirect('/subscribe-plan')
+                }
+                break
             default:
                 res.redirect('/')
                 break
