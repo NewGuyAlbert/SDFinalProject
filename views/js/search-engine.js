@@ -10,6 +10,8 @@ function displayInfoModal(id, name) {
 
 }
 
+let totalPrice = 0
+
 function addToCart(id, name) {
 
     $.ajax({
@@ -19,8 +21,9 @@ function addToCart(id, name) {
     }).done( function(response){
         console.log("Added to cart")
         $("#cart-items").append(`<div><p>${name}</p> <a type="button" onclick="removeFromCart('${id}','${name}')">remove</a></div>`)
-        
-
+        totalPrice += $(`#${id}-price > span`).html()
+        console.log("total price", totalPrice)
+        $("#total-price").html(totalPrice)
     }).fail( function(error){
         console.log(error.responseText)
     })

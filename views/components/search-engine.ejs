@@ -105,10 +105,10 @@
                     <p id="<%= item._id %>-duration" style="display: none;"><%= item.info.durationMin %> to <%= item.info.durationMax %></p>
                     <p id="<%= item._id %>-ageLimit" style="display: none;"><%= item.info.ageLimit %>+</p>
                     <p id="<%= item._id %>-language" style="display: none;">English</p>
-                    <p id="<%= item._id %>-price" style="display: none;"><%= item.price %></p>
+                    <p id="<%= item._id %>-price"><span><%= item.price / 100 %></span> DKK</p>
                 </div>
                 <div class="user-buttons">
-
+                    
                     <%if(subscriptionName){%>
                         <% if(item.amount > 3){ %>
                             <p>Available</p>

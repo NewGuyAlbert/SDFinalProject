@@ -10,6 +10,8 @@ function displayInfoModal(id, name) {
 
 }
 
+let totalPrice = 0
+
 function addToCart(id, name) {
 
     $.ajax({
@@ -19,7 +21,8 @@ function addToCart(id, name) {
     }).done( function(response){
         console.log("Added to cart")
         $("#cart-items").append(`<div><p>${name}</p> <a type="button" onclick="removeFromCart('${id}','${name}')">remove</a></div>`)
-
+        totalPrice += parseInt($(`#${id}-price > span`).html())
+        $("#total-price").html(totalPrice)
 
     }).fail( function(error){
         console.log(error.responseText)
@@ -34,10 +37,13 @@ function removeFromCart(id, name) {
         data: { id: id, name: name }
     }).done( function(response){
         $("#cart-items").empty()
+        totalPrice = 0
         response.forEach(boardgame => {
+            console.log(boardgame)
             $("#cart-items").append(`<div><p>${boardgame.name}</p> <a type="button" onclick="removeFromCart('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
+            totalPrice += parseInt($(`#${boardgame.id}-price > span`).html())
         })
-
+        $("#total-price").html(totalPrice)
     }).fail( function(){
         console.log("error")
     })
@@ -52,7 +58,10 @@ function getCart(){
         $("#cart-items").empty()
         response.forEach(boardgame => {
             $("#cart-items").append(`<div><p>${boardgame.name}</p> <a type="button" onclick="removeFromCart('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
+            totalPrice += parseInt($(`#${boardgame.id}-price > span`).html())
         })
+        $("#total-price").html(totalPrice)
+        
         
 
     }).fail( function(){
