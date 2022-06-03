@@ -12,7 +12,9 @@ const goToLoginPage = (req, res, next) => {
 
 router.get("/checkout", goToLoginPage, async (req, res) => {
     try {
-        if(!req.session.cart){
+
+        if(!req.session.cart || req.session.cart.length == 0){
+
             //Cart empty, redirect to shop
             res.redirect('/shop')
         } else{
@@ -38,7 +40,8 @@ router.get("/checkout", goToLoginPage, async (req, res) => {
                     const newCustomer = await stripe.customers.create()
     
                     customer = newCustomer.id
-                    await User.updateOne({_email: req.session.user}, {$set: {customerStripeId: newCustomer.id}})
+
+                    await User.updateOne({email: req.session.user}, {$set: {customerStripeId: newCustomer.id}})
                 
                 }
     
