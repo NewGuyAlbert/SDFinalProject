@@ -11,7 +11,7 @@ let boardgameItemArray = []
 //Boardgame Items
 boardgameItemArray.push({
     name: "Exploding Kittens",
-    condition: "Good",
+    condition: "New",
     language: "English",
     isAvailable: true
 })

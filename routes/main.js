@@ -34,8 +34,12 @@ router.get('/subscribe', async (req, res) => {
             for(let subscriptionType of allSubscriptions){
                 if(subscriptionType.plan == req.query.plan){
                     isValidPlan = true
-                    noOfGames = subscriptionType.noOfBoardgames,
-                    subscriptionName = subscriptionType.name,
+                    noOfGames = subscriptionType.noOfBoardgames
+                    subscriptionName = subscriptionType.name
+                    if(req.session.noOfGames != noOfGames){
+                        //Empty selection if plan changes
+                        req.session.selection = []
+                    }
                     req.session.noOfGames = noOfGames
                 }
             }
