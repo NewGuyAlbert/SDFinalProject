@@ -8,12 +8,24 @@ router.get('/subscribe-plan', (req, res) => {
 router.get('/shop', async (req, res) => {
     if(req.session.user){
 
-        const availableBoardgames = await getAvailableBoardgames()
+        const availableBoardgames = await getAvailableBoardgames("New")
 
         return res.render('./pages/shop-boardgames.ejs', {sessionUser: req.session.user, items: availableBoardgames})
     } else{
         return res.redirect('/login?intent=shop')
     }
+})
+
+router.get('/subscribe', async (req, res) => {
+    if(req.session.user){
+        const availableBoardgames = await getAvailableBoardgames("Good")
+        
+        //Also send current games attached to user if he has already subscribed
+        return res.render('./pages/subscribe-boardgames.ejs', {sessionUser: req.session.user, items: availableBoardgames})
+    } else{
+        return res.redirect('/login?intent=subscribe')
+    }
+
 })
 
 router.get('/about', (req,res) => {
@@ -26,7 +38,7 @@ router.get('/contact', (req,res) => {
 
 module.exports = router
 
-async function getAvailableBoardgames(){
+async function getAvailableBoardgames(condition){
     const Boardgame = require("../models/Boardgame")
     const BoardgameItem = require("../models/BoardgameItem")
 
@@ -38,8 +50,14 @@ async function getAvailableBoardgames(){
         let allBoardgameItem = await BoardgameItem.find({boardgameId: boardgame._id})
 
         for(let item of allBoardgameItem){
-            if(item.isAvailable == true && item.condition === "New"){
-                amount += 1
+            if(condition === "New"){
+                if(item.isAvailable == true && item.condition === "New"){
+                    amount += 1
+                }
+            } else {
+                if(item.isAvailable == true && item.condition != "New" && item.condition != "Bad"){
+                    amount += 1
+                }
             }
         }
         boardgame.amount = amount
