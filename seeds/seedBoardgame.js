@@ -74,7 +74,7 @@ boardgameArray.push({
 
 async function saveBoardgames(){
     for(let boardgame of boardgameArray){
-        newBoardgame = new Boardgame(boardgame)
+        let newBoardgame = new Boardgame(boardgame)
         await newBoardgame.save()
         console.log("seeded boardgame")
     }

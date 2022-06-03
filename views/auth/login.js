@@ -6,9 +6,17 @@ $(function () {
     // Keep intent
     let searchParams = new URLSearchParams(window.location.search)
     let intent = searchParams.get('intent')
+    let plan = searchParams.get('plan')
+
     if(intent){
-        $("#login-form").attr("action", "/login?intent=" + intent)
-        $("#signup-redirect > a").attr("href", "/signup?intent=" + intent)
+        if(plan){
+            $("#login-form").attr("action", "/login?intent=" + intent + "&plan=" + plan)
+            $("#signup-redirect > a").attr("href", "/signup?intent=" + intent + "&plan=" + plan)
+        } else{
+            $("#login-form").attr("action", "/login?intent=" + intent)
+            $("#signup-redirect > a").attr("href", "/signup?intent=" + intent)
+        }
+
     }
 })
 

@@ -53,7 +53,11 @@ router.post('/signup', async (req, res) => {
                         req.session.role = "customer"
 
                         if(req.query.intent){
-                            return res.redirect("/redirect?intent=" + req.query.intent)
+                            if(req.query.plan){
+                                return res.redirect("/redirect?intent=" + req.query.intent + "&plan=" + req.query.plan)
+                            } else{
+                                return res.redirect("/redirect?intent=" + req.query.intent)
+                            }
                         } else{
                             return res.redirect("/")
                         }
@@ -92,7 +96,11 @@ router.post("/login", async (req, res) => {
                         if (result) {
                             req.session.user = email
                             if(req.query.intent){
-                                return res.redirect("/redirect?intent=" + req.query.intent)
+                                if(req.query.plan){
+                                    return res.redirect("/redirect?intent=" + req.query.intent + "&plan=" + req.query.plan)
+                                } else{
+                                    return res.redirect("/redirect?intent=" + req.query.intent)
+                                }
                             } else{
                                 return res.redirect("/")
                             }

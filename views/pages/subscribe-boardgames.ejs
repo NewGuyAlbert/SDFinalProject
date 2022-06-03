@@ -7,12 +7,14 @@
 <body>
     <div class="select-body">
         <div class="search-box">
+            <h1><%-subscriptionName %></h1>
+            <h2 id="total-games">Please select <%-totalGames %> games</h2>
             <%- include('../components/search-engine.ejs') %>
         </div>
         <div class="selection-box">
             <h2>Your Selection</h2>
             <h5>Items</h5>
-            <div id="cart-items">
+            <div id="selection-items">
                 <!-- Content will be pushed here dinamically -->
             </div>
             <h5>Total: <span id="total-price">0</span>kr</h5>
