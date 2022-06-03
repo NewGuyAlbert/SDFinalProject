@@ -11,28 +11,40 @@ let boardgameItemArray = []
 //Boardgame Items
 boardgameItemArray.push({
     name: "Exploding Kittens",
-    condition: "New",
+    condition: "Good",
     language: "English",
     isAvailable: true
 })
 
 boardgameItemArray.push({
     name: "Exploding Kittens",
-    condition: "New",
+    condition: "Good",
     language: "English",
     isAvailable: true
 })
 
 boardgameItemArray.push({
     name: "Coup",
-    condition: "New",
+    condition: "Moderate",
     language: "English",
     isAvailable: true
 })
 
 boardgameItemArray.push({
     name: "Coup",
-    condition: "New",
+    condition: "Moderate",
+    language: "English",
+    isAvailable: true
+})
+boardgameItemArray.push({
+    name: "Secret hitler",
+    condition: "Good",
+    language: "English",
+    isAvailable: true
+})
+boardgameItemArray.push({
+    name: "Secret hitler",
+    condition: "Moderate",
     language: "English",
     isAvailable: true
 })

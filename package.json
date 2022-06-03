@@ -10,6 +10,7 @@
     "seed-admin": "node ./seeds/seedAdmin.js",
     "seed-boardgame": "node ./seeds/seedBoardgame.js",
     "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js",
+    "seed-subscriptionType": "node ./seeds/seedSubscriptionType.js",
     "purchase-webhook": "stripe listen --forward-to localhost:3000/purchase-webhook"
   },
   "repository": {
