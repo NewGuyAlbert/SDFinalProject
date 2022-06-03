@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const nodemailer = require('nodemailer')
 
-const Admin = require("../models/admin")
+const Admin = require("../models/Admin")
 
 function sendEmail(email, code){
     const transporter = nodemailer.createTransport({
