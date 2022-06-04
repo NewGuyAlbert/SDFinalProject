@@ -24,7 +24,7 @@ function addToSelection(id, name) {
         data: { id: id, name: name }
     }).done( function(response){
         console.log("Added to selection")
-        $("#selection-items").append(`<div><p>${name}</p> <a type="button" onclick="removeFromSelection('${id}','${name}')">remove</a></div>`)
+        $("#selection-items").append(`<div class="a-cart-item"><p>${name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromSelection('${id}','${name}')">remove</a></div>`)
 
 
     }).fail( function(error){
@@ -41,7 +41,7 @@ function removeFromSelection(id, name) {
     }).done( function(response){
         $("#selection-items").empty()
         response.forEach(boardgame => {
-            $("#selection-items").append(`<div><p>${boardgame.name}</p> <a type="button" onclick="removeFromSelection('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
+            $("#selection-items").append(`<div class="a-cart-item"><p>${boardgame.name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromSelection('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
         })
 
     }).fail( function(){
@@ -57,7 +57,7 @@ function getSelection(){
     }).done( function(response){
         $("#selection-items").empty()
         response.forEach(boardgame => {
-            $("#selection-items").append(`<div><p>${boardgame.name}</p> <a type="button" onclick="removeFromSelection('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
+            $("#selection-items").append(`<div class="a-cart-item"><p>${boardgame.name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromSelection('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
         })
         
 

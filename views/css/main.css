@@ -59,6 +59,8 @@
 
 .search-bar-append > button {
     right: 0;
+    height: 3rem;
+    width: 3rem;
 }
 
 .options-group {
@@ -77,6 +79,7 @@
     background-color: var(--ashgreen);
     color: var(--whitemint);
     border: 1px solid var(--whitemint);
+    border-radius: 2rem;
 }
 
 .modal-header > * {
@@ -89,4 +92,73 @@
 
 .modal-body-item > span{
     margin-left: 5px;
+}
+
+.boardgames-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card, .vertical-card {
+    width: 20rem;
+    margin: 1rem 0 1rem 0;
+
+}
+
+.card-img-top {
+    height: 25rem;
+}
+
+.few-left {
+    color: var(--orange);
+}
+
+.unavailable {
+    color: var(--red);
+}
+
+.user-buttons > a {
+    font-size: 1.5rem;
+    margin: 0 3px 0 3px;
+}
+
+#cart-items {
+    min-height: 7rem;
+}
+
+.a-cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5rem;
+    margin: 7px 0 7px 0;
+    border-top: 1px solid var(--palemint);
+    border-bottom: 1px solid var(--palemint);
+}
+
+.a-cart-item > p {
+    font-size: 1.5rem;
+    margin: auto 0;
+}
+
+.remove-btn {
+    text-align: center;
+    color: var(--purple) !important;
+    margin: auto 10px;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid var(--ashblue);
+    box-shadow: 3px 3px var(--ashblue);
+}
+
+#price-in-total {
+    font-size: 1.5rem;
+    margin: 10px 3px;
+}
+
+#checkoutButton {
+    box-shadow: 3px 3px var(--orange);
+    font-size: 1.25rem;
 }

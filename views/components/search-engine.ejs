@@ -92,12 +92,10 @@
 
 <div class="boardgames-group">
     <% items.forEach(function(item){ %>
-        <!-- TODO: get the price to calculate the total price, and also to display it on the card -->
-        <!--  console.log(item)   -->
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <img class="card-img-top" src="<%= item.image[0] %>" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><%= item.name %></h5>
+                <h3 class="card-title"><%= item.name %></h3>
                 <div class="boardgame-details">
                     <p id="<%= item._id %>-description" style="display: none;"><%= item.info.description %></p>
                     <p id="<%= item._id %>-genre" style="display: none;"><%= (item.info.genre).toString() %></p>
@@ -110,29 +108,29 @@
                 <div class="user-buttons">
                     
                     <%if(subscriptionName){%>
-                        <% if(item.amount > 3){ %>
+                        <% if(item.amount > 2){ %>
                             <p>Available</p>
                             <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                             <a onclick="addToSelection('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
                         <% } else if(item.amount > 0){ %>
-                            <p>Available - only a few left</p>
+                            <p>Available <span class="few-left">- only a few left</span></p>
                             <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                             <a onclick="addToSelection('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
-                        <% } else{ %>  
-                            <p>Unavailable</p>
+                        <% } else { %>  
+                            <p class="unavailable">Unavailable</p>
                             <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                         <% } %>
                     <%} else{%>
-                        <% if(item.amount > 3){ %>
+                        <% if(item.amount > 2){ %>
                             <p>Available</p>
                             <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                             <a onclick="addToCart('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
                         <% } else if(item.amount > 0){ %>
-                            <p>Available - only a few left</p>
+                            <p>Available <span class="few-left">- only a few left</span></p>
                             <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                             <a onclick="addToCart('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-cart-plus"></i></a>
-                        <% } else{ %>  
-                            <p>Unavailable</p>
+                        <% } else { %>  
+                            <p class="unavailable">Unavailable</p>
                             <a class="infobtn" onclick="displayInfoModal('<%= item._id %>', '<%= item.name %>')"><i class="fa-solid fa-circle-info"></i></a>
                         <% } %>
                     <%}%>

@@ -10,14 +10,14 @@
 }
 
 .subscribe-box {
-    background-image: url("../images/start.jpg");
+    background-image: url("../images/background-images/start.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
 .purchase-box {
-    background-image: url("../images/bg1.jpg");
+    background-image: url("../images/background-images/bg1.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
