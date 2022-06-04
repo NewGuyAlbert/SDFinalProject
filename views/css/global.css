@@ -173,31 +173,3 @@ h2, h1 {
     color: black;
     margin-right: 10px;
 }
-
-
-/* 
-#login-card-header, #signup-card-header {
-    background-color: var(--darkmint);
-}
-
-#login-card-body, #signup-card-body {
-    display: flex;
-    justify-content: center;
-}
-
-#login-form, #signup-form {
-    flex-direction: column;
-    justify-content: center;
-}
-
-#login-form > p, #signup-form > p {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-#login-form > p > label, #signup-form > p > label {
-    color: black;
-    font-size: 1.25rem;
-} */
