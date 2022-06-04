@@ -46,6 +46,15 @@ const orderSchema = new mongoose.Schema({
     subscriptionId:{
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Subscription",
+    },
+    createdAt: {
+        type: Date,
+        immutable: true,
+        default: ()=> Date.now(),
+    },
+    updatedAt: {
+        type: Date,
+        default: ()=> Date.now(),
     }
 })
 

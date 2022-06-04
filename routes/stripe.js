@@ -7,12 +7,11 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 // This is your Stripe CLI webhook secret
 const endpointSecret = process.env.WEBHOOK_PURCHASE
 
-router.post('/purchase-webhook', async (req, res) =>{
+router.post('/webhook', async (req, res) => {
     const payload = req.rawBody
     const sig = req.headers['stripe-signature']
 
     let event
-
     try {
         //Validate that the request came from stripe
         event = stripe.webhooks.constructEvent(payload, sig, endpointSecret)
@@ -74,6 +73,11 @@ router.post('/purchase-webhook', async (req, res) =>{
 
         const data = event.data.object
 
+        let isSubscription = false
+        if(event.data.object.mode == "subscription"){
+            isSubscription = true
+        }
+
         const Order = require("../models/Order")
         const items = []
 
@@ -109,7 +113,31 @@ router.post('/purchase-webhook', async (req, res) =>{
         }
 
         //email + items + order id
-        sendOrderConfirmationEmail(data.customer_details.email, itemsName, orderId._id)
+        sendOrderConfirmationEmail(data.customer_details.email, itemsName, orderId._id, isSubscription)
+
+    }
+    if(event.type === 'customer.subscription.updated') {
+        const SubscriptionType = require("../models/SubscriptionType")
+        const Subscription = require("../models/Subscription")
+
+        const data = event.data.object
+        const stripeSubscriptionId = data.items.data[0].plan.product
+        const stripeCustomer = data.customer
+
+        const product = await stripe.products.retrieve(
+            stripeSubscriptionId
+        )
+        const subscriptionType = await SubscriptionType.find({name: product.name}).select("_id").limit(1)
+
+        let newSubscription = {
+            customerStripeId: stripeCustomer,
+            isActive: true,
+            subscriptiontype: subscriptionType[0]._id,
+
+        }
+
+        let subscription = new Subscription(newSubscription)
+        const subscriptionId = await subscription.save()
 
     }
 
@@ -134,11 +162,23 @@ async function unReserve(id){
     await BoardgameItem.updateOne({_id: id}, {$set: {isAvailable: true}})
 }
 
-function sendOrderConfirmationEmail(email, items, orderNumber){
+function sendOrderConfirmationEmail(email, items, orderNumber, isSubscription){
 
     let text = ""
     for(let item of items){
         text +="- " + item[0].name + "\n"
+    }
+
+    let fullSubject
+    let fullText
+
+    if(isSubscription){
+        fullSubject = 'Subscription receipt'
+        fullText = "Hello \nThank you for subscribing \n Your initial items are:\n" + text + "Your order number is:" + orderNumber
+
+    } else {
+        fullSubject = 'Order receipt'
+        fullText = "Hello \nThank you for purchasing from us \n Your items are:\n" + text + "Your order number is:" + orderNumber
     }
 
     const transporter = nodemailer.createTransport({
@@ -152,8 +192,8 @@ function sendOrderConfirmationEmail(email, items, orderNumber){
       const mailOptions = {
         from: process.env.EMAILER_EMAIL,
         to: email,
-        subject: 'Order receipt',
-        text: "Hello \nThank you for purchasing from us \n Your items are:\n" + text + "Your order number is:" + orderNumber
+        subject: fullSubject,
+        text: fullText
       };
       
       transporter.sendMail(mailOptions, function(error, info){
