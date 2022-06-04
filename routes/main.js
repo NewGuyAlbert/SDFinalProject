@@ -48,7 +48,7 @@ router.get('/subscribe', async (req, res) => {
                 const availableBoardgames = await getAvailableBoardgames("Good")
 
                 //Add plan to session
-                req.session.subscriptionPlan = req.session.plan
+                req.session.subscriptionPlan = req.query.plan
         
                 //TODO Also send current games attached to user if he has already subscribed
                 return res.render('./pages/subscribe-boardgames.ejs', {

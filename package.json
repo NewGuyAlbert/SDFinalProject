@@ -11,7 +11,9 @@
     "seed-boardgame": "node ./seeds/seedBoardgame.js",
     "seed-boardgameItem": "node ./seeds/seedBoardgameItem.js",
     "seed-subscriptionType": "node ./seeds/seedSubscriptionType.js",
-    "purchase-webhook": "stripe listen --forward-to localhost:3000/purchase-webhook"
+    "purchase-webhook": "stripe listen --forward-to localhost:3000/purchase-webhook",
+    "subscription-webhook": "stripe listen --forward-to localhost:3000/subscription-webhook"
+
   },
   "repository": {
     "type": "git",
