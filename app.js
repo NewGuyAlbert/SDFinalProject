@@ -58,7 +58,6 @@ const cartRoute = require('./routes/api/cart.js')
 const selectionRoute = require('./routes/api/selection.js')
 const checkoutRoute = require('./routes/checkout.js')
 const stripeRoute = require('./routes/stripe.js')
-// const imageHandler = require('./imageHandler.js')
 
 app.use(authRoute)
 app.use(adminRoute)
@@ -68,7 +67,6 @@ app.use(cartRoute)
 app.use(selectionRoute)
 app.use(checkoutRoute)
 app.use(stripeRoute)
-// app.use(imageHandler)
 
 
 
