@@ -5,14 +5,10 @@ if(process.env.NODE_ENV !== 'production'){
 const express = require('express')
 const app = express()
 
-const bodyParser = require('body-parser')
-
-
 // middleware
 app.use(express.json({verify: (req,res,buf) => { req.rawBody = buf }}))
 app.use(express.static("views"))
 
-app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 
 // loads db
