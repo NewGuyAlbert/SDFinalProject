@@ -20,7 +20,7 @@ function addToCart(id, name) {
         data: { id: id, name: name }
     }).done( function(response){
         console.log("Added to cart")
-        $("#cart-items").append(`<div><p>${name}</p> <a type="button" onclick="removeFromCart('${id}','${name}')">remove</a></div>`)
+        $("#cart-items").append(`<div class="a-cart-item"><p>${name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromCart('${id}','${name}')">remove</a></div>`)
         totalPrice += parseInt($(`#${id}-price > span`).html())
         $("#total-price").html(totalPrice)
 
@@ -39,8 +39,7 @@ function removeFromCart(id, name) {
         $("#cart-items").empty()
         totalPrice = 0
         response.forEach(boardgame => {
-            console.log(boardgame)
-            $("#cart-items").append(`<div><p>${boardgame.name}</p> <a type="button" onclick="removeFromCart('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
+            $("#cart-items").append(`<div class="a-cart-item"><p>${boardgame.name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromCart('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
             totalPrice += parseInt($(`#${boardgame.id}-price > span`).html())
         })
         $("#total-price").html(totalPrice)
@@ -57,7 +56,7 @@ function getCart(){
     }).done( function(response){
         $("#cart-items").empty()
         response.forEach(boardgame => {
-            $("#cart-items").append(`<div><p>${boardgame.name}</p> <a type="button" onclick="removeFromCart('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
+            $("#cart-items").append(`<div class="a-cart-item"><p>${boardgame.name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromCart('${boardgame.id}','${boardgame.name}')">remove</a></div>`)
             totalPrice += parseInt($(`#${boardgame.id}-price > span`).html())
         })
         $("#total-price").html(totalPrice)

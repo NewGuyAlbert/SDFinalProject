@@ -8,17 +8,16 @@
     <div class="select-body">
         <div class="search-box">
             <h1><%-subscriptionName %></h1>
-            <h2 id="total-games">Please select <%-totalGames %> games</h2>
+            <h5 id="total-games">Please select <%-totalGames %> games</h5>
             <%- include('../components/search-engine.ejs') %>
         </div>
         <div class="selection-box">
             <h2>Your Selection</h2>
             <h5>Items</h5>
             <div id="selection-items">
-                <!-- Content will be pushed here dinamically -->
+                <!-- Content will be pushed here dynamically -->
             </div>
-            <h5>Total: <span id="total-price">0</span>kr</h5>
-            <a id="subscribeButton" type="button" class="btn btn-warning" href="/checkout-subscribe">Proceed to Checkout <i class="fa-solid fa-credit-card"></i></a>
+            <a id="subscribeButton" type="button" class="btn btn-warning" href="/checkout-subscribe">Proceed <i class="fa-solid fa-gift"></i></a>
 
         </div>
     </div>

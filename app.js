@@ -5,9 +5,15 @@ if(process.env.NODE_ENV !== 'production'){
 const express = require('express')
 const app = express()
 
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
+
+// middleware
 app.use(express.json({verify: (req,res,buf) => { req.rawBody = buf }}))
 app.use(express.static("views"))
 
+app.use(bodyParser.json())
+app.use(methodOverride('_method')) // we use query string when we create our form to make a request
 app.set('view engine', 'ejs')
 
 // loads db
@@ -53,7 +59,6 @@ const selectionRoute = require('./routes/api/selection.js')
 const checkoutRoute = require('./routes/checkout.js')
 const stripeRoute = require('./routes/stripe.js')
 
-
 app.use(authRoute)
 app.use(adminRoute)
 app.use(mainRoute)
@@ -65,10 +70,13 @@ app.use(stripeRoute)
 
 
 
-
 // Index
 app.get('/', (req, res) => {
     return res.render('./pages/index.ejs', { sessionUser: req.session.user })
+})
+
+app.get('/logo', (req, res) => {
+    return res.render('./pages/logo.ejs', {})
 })
 
 // Start server

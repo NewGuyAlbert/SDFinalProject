@@ -4,41 +4,46 @@
 
 <script src="./auth/signup.js"></script>
 
-<div class="card">
-
-    <h2 class="card-header">Sign Up</h2>
-    <div class="card-body">
-        <form id="signup-form" action="/signup" method="POST" name="signupform" onsubmit="return validateUser();">
-            <p> 
-                <label for="firstName">Enter First Name: </label>
-                <input type="text" id="firstName" name="firstName" placeholder="Type in your first name.">
-            </p>
-            <p> 
-                <label for="lastName">Enter Last Name: </label>
-                <input type="text" id="lastName" name="lastName" placeholder="Type in your last name.">
-            </p> 
-            <p>
-                <label for="email">Enter email: </label>
-                <input type="email" id="email" name="email" placeholder="Type in you email.">
-            </p>
-            <p>
-                <label for="password">Enter Password: </label>
-                <input type="password" id="password" name="password" placeholder="Password should be more than 8 characters.">
-            </p>
-            <p>
-                <label for="passwordRepeat">Repeat password: </label>
-                <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repeat password.">
-            </p>
-
-            <button class="btn btn-warning" type="submit">Sign Up</button>
-        </form>
+<body>
+    
+    <div id="signup-card" class="card">
+    
+        <h2 id="signup-card-header" class="card-header">Sign Up</h2>
+        <div id="signup-card-body" class="card-body">
+            <form id="signup-form" class="p-3 mt-3" action="/signup" method="POST" name="signupform" onsubmit="return validateUser();">
+                <p class="form-field d-flex align-items-center"> 
+                    <span class="fa-solid fa-user-pen"></span>
+                    <input type="text" id="firstName" name="firstName" placeholder="Type in your first name.">
+                </p>
+                <p class="form-field d-flex align-items-center"> 
+                    <span class="fa-solid fa-address-card"></span>
+                    <input type="text" id="lastName" name="lastName" placeholder="Type in your last name.">
+                </p> 
+                <p class="form-field d-flex align-items-center">
+                    <span class="fa-solid fa-at"></span>
+                    <input type="email" id="email" name="email" placeholder="Type in you email.">
+                </p>
+                <p class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="password" id="password" name="password" placeholder="Enter Password. Password should be more than 8 characters.">
+                </p>
+                <p class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="password" id="passwordRepeat" name="passwordRepeat" placeholder="Repeat password.">
+                </p>
+    
+                <button class="signup-btn mt-3" type="submit">Sign Up</button>
+            </form>
+        </div>
+    
+        <div id="login-redirect" class="text-center">
+            <p>Already have an account?</p>
+            <a href="/login">Log in</a>
+        </div>
+    
     </div>
 
-    <div id="login-redirect">
-        <p>Already have an account?</p>
-        <a href="/login">Log in</a>
-    </div>
+</body>
 
-</div>
 
 <%- include('../components/footer.ejs') %>
