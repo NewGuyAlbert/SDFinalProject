@@ -3,30 +3,33 @@
 <%- include('../components/navbarNew.ejs') %>
 
 <script src="./auth/login.js"></script>
+<body>
 
-<div class="card">
-
-    <h2 class="card-header">Log In</h2>
-    <div class="card-body">
-        <form id="login-form" action="/login" method="POST" name="loginform" onsubmit="return validateLogin();">
-            <p> 
-                <label for="email">Enter Email: </label>
-                <input type="text" id="email" name="email" placeholder="Type in your email.">
-            </p> 
-            <p>
-                <label for="password">Enter Password: </label>
-                <input type="password" id="password" name="password" placeholder="Type in your password.">
-            </p>
-
-            <button class="btn btn-warning" type="submit">Log In</button>
-        </form>
+    <div id="login-card" class="card">
+    
+        <h2 id="login-card-header" class="card-header">Log In</h2>
+        <div id="login-card-body" class="card-body">
+            <form id="login-form" class="p-3 mt-3" action="/login" method="POST" name="loginform" onsubmit="return validateLogin();">
+                <p class="form-field d-flex align-items-center"> 
+                    <span class="fa-solid fa-at"></span>
+                    <input type="text" id="email" name="email" placeholder="Enter email">
+                </p> 
+                <p class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    <input type="password" id="password" name="password" placeholder="Enter password">
+                </p>
+    
+                <button class="login-btn mt-3" type="submit">Log In</button>
+            </form>
+        </div>
+    
+        <div id="signup-redirect" class="text-center">
+            <p>Create new account?</p>
+            <a href="/signup">Sign in</a>
+        </div>
+    
     </div>
-
-    <div id="signup-redirect">
-        <p>Create new account?</p>
-        <a href="/signup">Sign in</a>
-    </div>
-
-</div>
+    
+</body>
 
 <%- include('../components/footer.ejs') %>

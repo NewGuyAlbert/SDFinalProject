@@ -109,3 +109,95 @@ h2, h1 {
 .card-text {
     color: black;
 }
+
+#login-card, #signup-card {
+    width: 70%;
+    margin: 5rem auto;
+}
+
+#login-card-header, #signup-card-header {
+    background-color: var(--paleblue);
+}
+
+.form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: var(--ashgreen);
+    padding: 10px 15px 10px 10px;
+    /* border: 1px solid red; */
+}
+
+.form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+
+.form-field .fas, .form-field .fa-solid {
+    font-size: 1.25rem;
+    margin: 7px;
+    color: var(--ashgreen);
+}
+
+.login-btn, .signup-btn {
+    box-shadow: none;
+    width: 100%;
+    height: 50px;
+    background-color: var(--paleblue);
+    color: var(--whitemint);
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid var(--purple);
+    box-shadow: 3px 3px 3px var(--purple),
+        -3px -3px 3px #fff;
+    letter-spacing: 1.3px;
+}
+
+.login-btn:hover, .signup-btn:hover {
+    background-color: var(--purpleblue);
+}
+
+#signup-redirect, #login-redirect {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#signup-redirect > p, #login-redirect > p {
+    color: black;
+    margin-right: 10px;
+}
+
+
+/* 
+#login-card-header, #signup-card-header {
+    background-color: var(--darkmint);
+}
+
+#login-card-body, #signup-card-body {
+    display: flex;
+    justify-content: center;
+}
+
+#login-form, #signup-form {
+    flex-direction: column;
+    justify-content: center;
+}
+
+#login-form > p, #signup-form > p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#login-form > p > label, #signup-form > p > label {
+    color: black;
+    font-size: 1.25rem;
+} */
