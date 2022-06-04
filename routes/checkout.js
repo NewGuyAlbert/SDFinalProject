@@ -65,10 +65,7 @@ router.get("/checkout-subscribe", goToLoginPage, async (req, res) => {
                       },
                     ],
                     mode: 'subscription',
-                    metadata: {
-                        items: boardgameIds,
-                        plan: req.session.plan
-                    },
+                    metadata: boardgameIds,
                     success_url: `${process.env.SERVER_URL}/checkout/success`,
                     cancel_url: `${process.env.SERVER_URL}/checkout/fail`,
                 })
@@ -80,7 +77,7 @@ router.get("/checkout-subscribe", goToLoginPage, async (req, res) => {
             }
         }
     } catch(error){
-        console.log(error.nessage)
+        console.log(error.message)
         res.status(500).json({
             error: error.message
         })

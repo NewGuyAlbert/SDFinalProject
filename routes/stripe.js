@@ -75,53 +75,49 @@ router.post('/webhook', async (req, res) => {
         const Order = require("../models/Order")
         const items = []
 
-
         for (const [key, value] of Object.entries(data.metadata)) {
             items.push(value)
         }
 
-        if(object.mode == "subscription"){
-            //create order and subscription from metadata
-
-            console.log(items)
-        } else {
-            let newOrder = {
-                shippingAddress:{
-                    country: data.shipping.address.country,
-                    state: data.shipping.address.state,
-                    city: data.shipping.address.city,
-                    street: data.shipping.address.line1,
-                    postalCode: data.shipping.address.postal_code
-                },
-                customerStripeId: data.customer,
-                orderItems: items
-            }
-    
-            let order = new Order(newOrder)
-            const orderId = await order.save()
-    
-            //Send email with confirmation of purchase
-            //Grab item names
-            const Boardgame = require("../models/Boardgame")
-            const BoardgameItem = require("../models/BoardgameItem")
-    
-            let itemsName = []
-    
-            for(let itemId of items){
-                let data = await BoardgameItem.find({_id: itemId}).select("boardgameId").limit(1)
-                itemsName.push(await Boardgame.find({_id: data[0].boardgameId}).select("name").limit(1))
-            }
-    
-            //email + items + order id
-            sendOrderConfirmationEmail(data.customer_details.email, itemsName, orderId._id)
-    
+        let newOrder = {
+            shippingAddress:{
+                country: data.shipping.address.country,
+                state: data.shipping.address.state,
+                city: data.shipping.address.city,
+                street: data.shipping.address.line1,
+                postalCode: data.shipping.address.postal_code
+            },
+            customerStripeId: data.customer,
+            orderItems: items
         }
+
+        let order = new Order(newOrder)
+        const orderId = await order.save()
+
+        //Send email with confirmation of purchase
+        //Grab item names
+        const Boardgame = require("../models/Boardgame")
+        const BoardgameItem = require("../models/BoardgameItem")
+
+        let itemsName = []
+
+        for(let itemId of items){
+            let data = await BoardgameItem.find({_id: itemId}).select("boardgameId").limit(1)
+            itemsName.push(await Boardgame.find({_id: data[0].boardgameId}).select("name").limit(1))
+        }
+
+        //email + items + order id
+        sendOrderConfirmationEmail(data.customer_details.email, itemsName, orderId._id)
+
+    }
+    if(event.type === 'customer.subscription.updated') {
+        const data = event.data.object.items.data.plan
+
+        console.log(data)
 
     }
 
     if(event.type === 'checkout.session.expired' || event.type === 'checkout.session.failed') {
-        //TODO cover subscription as well
-        
         for (const [key, value] of Object.entries(event.data.object.metadata)) {
             unReserve(value)
         }
