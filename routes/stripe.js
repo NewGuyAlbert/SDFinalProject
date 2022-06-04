@@ -111,7 +111,8 @@ router.post('/webhook', async (req, res) => {
 
     }
     if(event.type === 'customer.subscription.updated') {
-        const data = event.data.object.items.data.plan
+        // const data = event.data.object.items.data.plan
+        const data = event.data.object
 
         console.log(data)
 
