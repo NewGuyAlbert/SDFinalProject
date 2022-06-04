@@ -28,6 +28,7 @@ function addToSelection(id, name) {
 
 
     }).fail( function(error){
+        alert("Already selected maximum amount of games. Cannot add more with the current subscription plan.")
         console.log(error.responseText)
     })
 }
