@@ -6,14 +6,13 @@ const express = require('express')
 const app = express()
 
 const bodyParser = require('body-parser')
-const methodOverride = require('method-override')
+
 
 // middleware
 app.use(express.json({verify: (req,res,buf) => { req.rawBody = buf }}))
 app.use(express.static("views"))
 
 app.use(bodyParser.json())
-app.use(methodOverride('_method')) // we use query string when we create our form to make a request
 app.set('view engine', 'ejs')
 
 // loads db
