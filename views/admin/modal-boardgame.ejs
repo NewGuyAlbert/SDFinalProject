@@ -17,19 +17,28 @@
                     <input id="bg-title-input" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                   </div>
                 </p>
-                <p class="modal-body-item" id="modal-description">
+                <p class="modal-body-item" id="modal-bgname">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Boardgame condition</span>
+                    </div>
+                    <input id="bg-condition-input" type="text" class="form-control" placeholder="Enter the condition: New, Good, Moderate, Bad"aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                </p>
+                <!-- <p class="modal-body-item" id="modal-description">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Description</span>
                     </div>
-                    <textarea class="form-control" aria-label="Description"></textarea>
+                    <textarea id="bg-description-input" class="form-control" aria-label="Description"></textarea>
                   </div>
                 </p>
                 <p class="modal-body-item" id="modal-genre">
-                  <div id="genre-checkbox-div">
-                    <p>Select Genre</p>
-                    <input type="checkbox" id="genre1" name="interest" value="genre1">
-                    <label for="genre1">Genre1</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Genres</span>
+                    </div>
+                    <input id="bg-genre-input" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Enter genre separated by ','">
                   </div>
                 </p>
                 <p class="modal-body-item" id="modal-noOfPlayers">
@@ -77,11 +86,11 @@
                       <button class="dropdown-item" type="button">English</button>
                     </div>
                   </div>
-                </p>
+                </p> -->
             </div>
             <div class="admin-bgmodal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-                <button type="button" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                <button type="button" class="btn btn-primary" onclick="addBoardgame()"><i class="fa-solid fa-floppy-disk"></i> Save</button>
             </div>
         </div>
     </div>

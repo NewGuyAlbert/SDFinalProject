@@ -15,6 +15,7 @@ const boardgameItemSchema = new mongoose.Schema({
     language: {
         type: String,
         required: true,
+        default: "English"
     },
     isAvailable: {
         type: Boolean,
