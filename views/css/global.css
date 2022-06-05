@@ -35,6 +35,11 @@ h2, h1 {
     margin-bottom: 20px;
 }
 
+a:hover {
+    text-decoration: none;
+    color: var(--mint);
+}
+
 .button {
     margin-left: 10px;
     margin-right: 10px;
@@ -50,7 +55,7 @@ h2, h1 {
 
 .btn-primary:hover {
     color: var(--whitemint);
-    background-color: var(--lightpurple);
+    background-color: var(--purpleblue);
 }
 
 .btn-secondary {
@@ -62,7 +67,7 @@ h2, h1 {
 
 .btn-secondary:hover {
     color: var(--purple);
-    background-color: var(--darkmint);
+    background-color: var(--whitemint);
 }
 
 .navbar-light {

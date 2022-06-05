@@ -22,3 +22,25 @@
     background-position: center;
     background-size: cover;
 }
+
+.main-box > p {
+    margin: 12rem 3rem 0 3rem;
+    font-size: 1.5rem;
+    padding: 0 5px 0 5px;
+    text-shadow: 2px 2px black;
+}
+
+.main-box > a {
+    margin-top: 25px;
+    font-size: 2rem;
+    padding: 7px 50px 7px 50px;
+    border-radius: 2rem;
+}
+
+.subscribe-box > a {
+    box-shadow: 5px 5px var(--purple);
+}
+
+.purchase-box > a {
+    box-shadow: 3px 3px var(--mint);
+}
