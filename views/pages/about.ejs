@@ -5,8 +5,23 @@
   <% } else{ %>  
     <%- include('../components/navbarNew.ejs') %>
 <% } %>
+<body>
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
 
+  <h1>About Co-Hop</h1>
 
-<h1>About</h1>
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, Co-Hop!</h1>
+    <div class="jumbotron-div">
+      <img class="founders-photo" src="../images/Founders2.JPG" alt="img">
+      <p class="lead">We're a group of developers in Copenhagen and San Francisco.</p>
+    </div>
+    <div class="jumbotron-div">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <img class="founders-photo" src="../images/Founders1.JPG" alt="">
+    </div>  
+  </div>
+
+</body>
 
 <%- include('../components/footer.ejs') %>

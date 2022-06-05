@@ -1,0 +1,27 @@
+<%- include('../components/header.ejs') %>
+
+<% if(sessionUser){ %>
+    <%- include('../components/navbarUser.ejs') %>
+  <% } else{ %>  
+    <%- include('../components/navbarNew.ejs') %>
+<% } %>
+
+<body>
+  
+  <h1> Profile </h1>
+  
+  <div>
+    <div>
+      <i class="fa-solid fa-user"></i>
+      <div id="user-info">
+        
+      </div>
+    </div>
+    <div>
+
+    </div>
+  </div>
+  
+</body>
+
+<%- include('../components/footer.ejs') %>

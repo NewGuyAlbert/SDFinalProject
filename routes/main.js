@@ -88,6 +88,18 @@ router.get('/contact', (req,res) => {
     return res.render('./pages/contact.ejs', { sessionUser: req.session.user })
 })
 
+router.get('/order-history', (req,res) => {
+    return res.render('./pages/order-history.ejs', { sessionUser: req.session.user })
+})
+
+router.get('/faq', (req,res) => {
+    return res.render('./pages/faq.ejs', { sessionUser: req.session.user })
+})
+
+router.get('/profile', (req,res) => {
+    return res.render('./pages/profile.ejs', { sessionUser: req.session.user })
+})
+
 module.exports = router
 
 async function getAvailableBoardgames(condition){
