@@ -5,21 +5,22 @@
   <%- include('../components/navbarNew.ejs') %>
 <% } %>
 
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+
 <body>
-    <h1>Subscription</h1>
-    <p>detail explanatino of subscription</p>
-
-    <% subscriptionTypes.forEach(function(subscription){ %>
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title" style="color: black;"><%-subscription.name%></h5>
-          <p class="card-text"><%-subscription.description%></p>
-          <p class="card-price" style="color: black;"><%-subscription.price/100%> DKK</p>
-          <a href="/subscribe?plan=<%-subscription.plan%>" class="btn btn-primary">Start</a>
+    <h1>Subscription plans</h1>
+    <p style="margin: 2rem;">Please choose one of the subscription plans below.</p>
+    <div id="subscriptionTypesDiv">
+      <% subscriptionTypes.forEach(function(subscription){ %>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title" style="color: black;"><%-subscription.name%></h5>
+            <p class="card-text"><%-subscription.description%></p>
+            <p class="card-price" style="color: black;"><%-subscription.price/100%> DKK</p>
+            <a href="/subscribe?plan=<%-subscription.plan%>" class="btn btn-primary">Start</a>
+          </div>
         </div>
-      </div>
-    <% }) %>
-
+      <% }) %>
+    </div>
 </body>
 <%- include('../components/footer.ejs') %>

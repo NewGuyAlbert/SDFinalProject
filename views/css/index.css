@@ -51,6 +51,10 @@
 
 /* Contact page */
 
+.contact-direction {
+  margin: 2rem;
+}
+
 input {
 	outline: none;
 	border: none;
@@ -248,4 +252,44 @@ textarea:-ms-input-placeholder { color: #999999; }
   border-radius: 2rem;
   border: 1rem outset var(--ashblue);
   box-shadow: 5px 5px var(--paleblue);
+}
+
+
+
+/* Order History Page */
+
+#user-subscription-div, #user-order-history-div {
+  margin: 2rem;
+}
+
+#user-subscription-div > h3, #user-order-history-div > h3 {
+  color: var(--mint);
+  text-shadow: -1px 0 var(--purpleblue), 0 1px var(--purpleblue), 1px 0 var(--purpleblue), 0 -1px var(--purpleblue);
+}
+
+#current-subscription-div {
+  margin: 1rem;
+}
+
+#current-subscription-div > p {
+  color: var(--grey);
+}
+
+#current-subscription-div > p > span {
+  color: white;
+}
+
+#user-order-table {
+  color: white;
+}
+
+
+
+
+/* Subscription plan page */
+
+#subscriptionTypesDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
