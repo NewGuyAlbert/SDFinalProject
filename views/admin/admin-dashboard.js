@@ -107,15 +107,8 @@ function deleteBoardgame(id) {
 }
 
 
-// JQuery
+// jQuery
 $(function() {
     getBoardgames()
     
-    // $("#boardgame-table-body > tr > td > .admin-edit-modal-btn").on('click', (e) => {
-    //     e.preventDefault()
-    //     console.log("here")
-    //     // console.log($(this))
-    //     // let id = $(this).data('id')
-    //     // console.log('id', id)
-    // })
 })
