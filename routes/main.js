@@ -161,9 +161,14 @@ async function hasSubscription(user){
         customer = stripeId[0].customerStripeId
 
         let subscriptionId = await Subscription.find({customerStripeId: customer}).limit(1)
-        if(subscriptionId){
-            return true
-        } else{
+        try {
+            console.log(subscriptionId)
+            if(subscriptionId[0]._id){
+                return true
+            } else{
+                return false
+            }
+        } catch (error) {
             return false
         }
     } else{
