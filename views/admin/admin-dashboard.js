@@ -110,5 +110,5 @@ function deleteBoardgame(id) {
 // jQuery
 $(function() {
     getBoardgames()
-    console.log("here")
+    
 })
