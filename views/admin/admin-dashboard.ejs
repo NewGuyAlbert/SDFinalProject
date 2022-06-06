@@ -12,8 +12,10 @@
   <!-- Table -->
   <div id="tableBodyDiv">
     <% if(boardgameTable){ %>
+      <script src="./admin-dashboard.js"></script>
       <%- include('./table-boardgame.ejs') %>
-    <% } else if(orderTable){ %>  
+    <% } else if(orderTable){ %> 
+      <script src="./admin-order.js"></script> 
       <%- include('./table-order.ejs') %>
     <% } else if(subscriptionTable){%>
       <%- include('./table-subscription.ejs') %>

@@ -1,5 +1,12 @@
 const router = require('express').Router()
 
+const goToLoginPage = (req, res, next) => {
+    if (!req.session.user) {
+        res.redirect('/login')
+    } else {
+        next()
+    }
+}
 
 router.get('/subscribe-plan', async (req, res) => {
 
@@ -88,17 +95,17 @@ router.get('/contact', (req,res) => {
     return res.render('./pages/contact.ejs', { sessionUser: req.session.user })
 })
 
-router.get('/order-history', (req,res) => {
+router.get('/order-history', goToLoginPage, (req,res) => {
     return res.render('./pages/order-history.ejs', { sessionUser: req.session.user })
 })
 
-router.get('/faq', (req,res) => {
+router.get('/faq', goToLoginPage, (req,res) => {
     return res.render('./pages/faq.ejs', { sessionUser: req.session.user })
 })
 
-router.get('/profile', (req,res) => {
-    return res.render('./pages/profile.ejs', { sessionUser: req.session.user })
-})
+// router.get('/profile', (req,res) => {
+//     return res.render('./pages/profile.ejs', { sessionUser: req.session.user })
+// })
 
 module.exports = router
 
@@ -154,9 +161,14 @@ async function hasSubscription(user){
         customer = stripeId[0].customerStripeId
 
         let subscriptionId = await Subscription.find({customerStripeId: customer}).limit(1)
-        if(subscriptionId){
-            return true
-        } else{
+        try {
+            console.log(subscriptionId)
+            if(subscriptionId[0]._id){
+                return true
+            } else{
+                return false
+            }
+        } catch (error) {
             return false
         }
     } else{
