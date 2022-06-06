@@ -49,7 +49,6 @@ function addBoardgame() {
         url: "/add-boardgame-item",
         data: newBoardgameItem
     }).done( function(response){
-        console.log(response)
         $("#admin-bgmodal").modal('hide')
         $("#boardgame-table-body").append(`
             <tr id="tr-${response.newItem._id}">
