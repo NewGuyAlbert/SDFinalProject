@@ -13,7 +13,6 @@ function getOrders() {
                 itemIDandName += detail[0]._id + " - "+ detail[0].boardgameId.name + ", "
             }
             
-            // TODO: for each order items, get the names and ids of each item and send it to modal
             $("#order-table-body").append(`
             <tr id="order-tr-${item.order._id}">
                 <th scope="row">${item.order._id}</th>

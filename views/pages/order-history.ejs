@@ -5,7 +5,39 @@
   <% } else{ %>  
     <%- include('../components/navbarNew.ejs') %>
 <% } %>
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<script src="./pages/order-history.js"></script>
 
-<h1>Order History</h1>
+<body>
+  
+  <h1>Order History</h1>
+  
+  <h3>Current Subscription</h3>
+  <div id="current-subscription-div">
+    <p>Subscription : <span id="current-subscription-name"></span></p>
+    <p>Subscription Type : <span id="current-subscription-type"></span></p>
+    <p>Number of Board games : <span id="current-subscription-noOfBg"></span></p>
+    <p>Number of Mystery games : <span id="current-subscription-noOfMg"></span></p>
+    <p>Previous Billing Date : <span id="current-subscription-updatedAt"></span></p>
+    <p>Next Billing Date : <span id="current-subscription-next-billing-date"></span></p>
+  </div>
+  
+  <h3>Your Orders</h3>
+
+  <table class="table" id="user-order-table">
+    <thead>
+    <tr>
+        <th scope="col">Order Number</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Order Status</th>
+        <th scope="col">View Order Items</th>
+    </tr>
+    </thead>
+    <tbody id="user-order-table-body">
+
+    </tbody>
+</table>
+  
+</body>
 
 <%- include('../components/footer.ejs') %>
