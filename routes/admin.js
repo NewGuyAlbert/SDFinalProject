@@ -40,8 +40,7 @@ router.get('/admin', (req, res) => {
     return res.render('./admin/admin-index.ejs')
 })
 
-// TODO: goToAdminPage,
-router.get('/admin/dashboard', (req, res) => {
+router.get('/admin/dashboard', goToAdminPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true })
 })
 
@@ -111,18 +110,15 @@ router.post("/admin/logintwofa", async (req, res) => {
     }
 })
 
-// TODO: goToAdminPage,
-router.get('/admin/boardgame', (req, res) => {
+router.get('/admin/boardgame', goToAdminPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true, orderTable: false, subscriptionTable: false })
 })
 
-// TODO: goToAdminPage,
-router.get('/admin/order', (req, res) => {
+router.get('/admin/order', goToAdminPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: false, orderTable: true, subscriptionTable: false })
 })
 
-// TODO: goToAdminPage,
-router.get('/admin/subscription', (req, res) => {
+router.get('/admin/subscription', goToAdminPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: false, orderTable: false, subscriptionTable: true })
 })
 

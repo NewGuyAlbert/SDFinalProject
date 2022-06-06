@@ -11,8 +11,7 @@ const notAdmin = (req, res, next) => {
     }
 }
 
-// TODO: notAdmin
-router.get('/get-boardgames', async (req, res) => {
+router.get('/get-boardgames', notAdmin, async (req, res) => {
 
     try {
         let allBoardgameItems = await BoardgameItem.find().populate("boardgameId")
@@ -23,7 +22,7 @@ router.get('/get-boardgames', async (req, res) => {
     }
 })
 
-router.post("/add-boardgame-item", async (req, res) => {
+router.post("/add-boardgame-item", notAdmin, async (req, res) => {
     try {
         let boardgame = await Boardgame.find({ name: req.body.name }).select("_id").limit(1)
         let newBoardgameItem = new BoardgameItem({
@@ -38,7 +37,7 @@ router.post("/add-boardgame-item", async (req, res) => {
     }
 })
 
-router.put("/edit-boardgame-item", async (req, res) => {
+router.put("/edit-boardgame-item", notAdmin, async (req, res) => {
     try {
         let newCondition = req.body.condition
         if (newCondition == "New" || newCondition == "Good" || newCondition == "Moderate" || newCondition == "Bad") {
@@ -53,7 +52,7 @@ router.put("/edit-boardgame-item", async (req, res) => {
     }
 })
 
-router.delete("/delete-boardgame-item", async (req, res) => {
+router.delete("/delete-boardgame-item", notAdmin, async (req, res) => {
     try {
         let item = await BoardgameItem.find({ _id: req.body.id }).select("isAvailable").limit(1)
         if (item[0].isAvailable) {

@@ -11,8 +11,7 @@ const notAdmin = (req, res, next) => {
     }
 }
 
-// TODO: notAdmin
-router.get("/get-orders", async (req, res) => {
+router.get("/get-orders", notAdmin, async (req, res) => {
 
     try {
         let allOrders = await Order.find()
@@ -36,7 +35,7 @@ router.get("/get-orders", async (req, res) => {
     }
 })
 
-router.get("/get-order-items", async (req, res) => {
+router.get("/get-order-items", notAdmin, async (req, res) => {
 
     try {
         let allOrders = await Order.find()
@@ -47,7 +46,7 @@ router.get("/get-order-items", async (req, res) => {
     }
 })
 
-router.put("/edit-order-status", async (req, res) => {
+router.put("/edit-order-status", notAdmin, async (req, res) => {
     try {
         await Order.updateOne({ _id: req.body.id }, {$set: { orderStatus: req.body.status }})
         res.status(200).send("Edit Success!")
