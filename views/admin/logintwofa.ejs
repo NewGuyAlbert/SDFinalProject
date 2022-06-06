@@ -2,16 +2,16 @@
 
 <script src="./logintwofa.js"></script>
 
-<div class="card">
-    <h2 class="card-header">Log In</h2>
-    <div class="card-body">
-        <p>You only have 1 minute to input the verification code</p>
-        <form action="/admin/logintwofa" method="POST" name="twofaform" onsubmit="return validateTwofa();">
+<div id="login-card" class="card">
+    <h2 id="login-card-header" class="card-header">Log In</h2>
+    <div id="login-card-body" class="card-body">
+        <p style="color:black;">You only have 1 minute to input the verification code</p>
+        <form id="login-form" class="p-3 mt-3" action="/admin/logintwofa" method="POST" name="twofaform" onsubmit="return validateTwofa();">
             <p>
-                <label for="code">Enter verification code: </label>
+                <label for="code" style="color:black;">Enter verification code: </label>
                 <input type="password" id="code" name="code" placeholder="Type the verification code.">
             </p>
-            <button class="btn btn-warning" type="submit">Log In</button>
+            <button class="login-btn mt-3" type="submit">Log In</button>
         </form>
     </div>
 </div>

@@ -17,8 +17,8 @@ function getBoardgames() {
                 <td>${item.boardgameId.name}</td>
                 <td>${item.condition}</td>
                 <td>${item.isAvailable === true ? "Available" : "Not available"}</td>
-                <td><button class="admin-edit-modal-btn" data-id="${item._id}"><i class="fa-solid fa-pen-to-square" data-id="${item._id}"></i></button></td>
-                <td class="delete-bgitem"><button class="fa-solid fa-trash" onclick="deleteBoardgame('${item._id}')"></button></td>
+                <td><button class="btn-secondary admin-edit-modal-btn" data-id="${item._id}"><i class="fa-solid fa-pen-to-square" data-id="${item._id}"></i></button></td>
+                <td class="delete-bgitem"><button class="btn-secondary fa-solid fa-trash" onclick="deleteBoardgame('${item._id}')"></button></td>
             </tr>
             `)
         })
@@ -57,8 +57,8 @@ function addBoardgame() {
                 <td>${bgTitle}</td>
                 <td>${bgCondition}</td>
                 <td>${response.newItem.isAvailable === true ? "Available" : "Not available"}</td>
-                <td><button class="admin-edit-modal-btn" data-id="${response.newItem._id}" ><i class="fa-solid fa-pen-to-square" data-id="${response.newItem._id}"></i></button></td>
-                <td class="delete-bgitem"><button class="fa-solid fa-trash" onclick="deleteBoardgame('${response.newItem._id}')"></button></td>
+                <td><button class="btn-secondary admin-edit-modal-btn" data-id="${response.newItem._id}" ><i class="fa-solid fa-pen-to-square" data-id="${response.newItem._id}"></i></button></td>
+                <td class="delete-bgitem"><button class="btn-secondary fa-solid fa-trash" onclick="deleteBoardgame('${response.newItem._id}')"></button></td>
             </tr>
             `)
     }).fail( function(){

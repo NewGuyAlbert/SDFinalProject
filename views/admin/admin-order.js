@@ -19,7 +19,7 @@ function getOrders() {
                 <td>${item.order.customerStripeId}</td>
                 <td>${item.order.createdAt}</td>
                 <td>${item.order.updatedAt}</td>
-                <td><button class="admin-view-order-btn" data-id="${item.order._id}" data-item="${itemIDandName}"><i class="fa-solid fa-boxes-stacked" data-id="${item.order._id}" data-item="${itemIDandName}"></i></button></td>
+                <td><button class="btn-secondary admin-view-order-btn" data-id="${item.order._id}" data-item="${itemIDandName}"><i class="fa-solid fa-boxes-stacked" data-id="${item.order._id}" data-item="${itemIDandName}"></i></button></td>
                 <td>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="${item.order._id}-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +76,6 @@ function editOrderStatus(id, status) {
     }).done( function(response){
         if (response == "Edit Success!") {
             alert(response)
-            console.log(id)
             $(`#${id}-dropdown`).html(status)
         }
     }).fail( function(error){

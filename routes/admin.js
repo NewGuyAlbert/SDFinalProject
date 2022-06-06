@@ -28,19 +28,27 @@ function sendEmail(email, code){
       });
 }
 
-const goToAdminPage = (req, res, next) => {
-    if (req.session.admin) {
-        res.redirect('/admin/dashboard')
+const goToAdminLoginPage = (req, res, next) => {
+    if (!req.session.admin) {
+        res.redirect('/admin/login')
     } else {
         next()
     }
 }
 
-router.get('/admin', (req, res) => {
+const goToAdminDashboard = (req, res, next) => {
+    if (req.session.admin) {
+        res.redirect('/admin/dashboard')
+    } else  {
+        next()
+    }
+}
+
+router.get('/admin', goToAdminDashboard, (req, res) => {
     return res.render('./admin/admin-index.ejs')
 })
 
-router.get('/admin/dashboard', goToAdminPage, (req, res) => {
+router.get('/admin/dashboard', goToAdminLoginPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true })
 })
 
@@ -93,14 +101,14 @@ router.post("/admin/logintwofa", async (req, res) => {
     const {code} = req.body
 
     if(code){
-        console.log(req.session.adminCode)
-        console.log(code)
+        // console.log(req.session.adminCode)
+        // console.log(code)
 
         if(req.session.adminCode == code){
             req.session.admin = req.session.saveAdmin
             req.session.saveAdmin = undefined
             
-            return res.redirect("/admin")
+            return res.redirect("/admin/dashboard")
         } else{
             return res.redirect("/admin/login?error2")
         }
@@ -110,20 +118,20 @@ router.post("/admin/logintwofa", async (req, res) => {
     }
 })
 
-router.get('/admin/boardgame', goToAdminPage, (req, res) => {
+router.get('/admin/boardgame', goToAdminLoginPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: true, orderTable: false, subscriptionTable: false })
 })
 
-router.get('/admin/order', goToAdminPage, (req, res) => {
+router.get('/admin/order', goToAdminLoginPage, (req, res) => {
     return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: false, orderTable: true, subscriptionTable: false })
 })
 
-router.get('/admin/subscription', goToAdminPage, (req, res) => {
-    return res.render('./admin/admin-dashboard.ejs', { sessionAdmin: req.session.admin, boardgameTable: false, orderTable: false, subscriptionTable: true })
-})
-
 router.get('/admin/logout', (req, res) => {
-    // TODO: clear session data
+    req.session.destroy((error) => {
+        if(error){
+            console.log("Error happend when logging out:", error.message);
+        }
+    });
     return res.redirect("/admin")
 })
 

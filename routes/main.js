@@ -162,7 +162,6 @@ async function hasSubscription(user){
 
         let subscriptionId = await Subscription.find({customerStripeId: customer}).limit(1)
         try {
-            console.log(subscriptionId)
             if(subscriptionId[0]._id){
                 return true
             } else{

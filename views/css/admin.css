@@ -19,3 +19,25 @@ th, td {
 .modal {
     color: black;
 }
+
+#add-bg-item {
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+button {
+    border-radius: 5px !important;
+}
+
+.btn-primary {
+    padding: 6px 12px;
+}
+
+.modal-content {
+    padding: 10px;
+}
+
+.admin-bgmodal-footer > button {
+    height: 100%;
+    margin-right: 2px;
+}
