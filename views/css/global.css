@@ -121,6 +121,7 @@ a:hover {
 }
 
 #login-card-header, #signup-card-header {
+    margin: 0;
     background-color: var(--paleblue);
 }
 

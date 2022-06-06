@@ -51,7 +51,6 @@ function getOrders() {
                 `)
             })
         }
-        console.log(response)
     }).fail(function(){
         console.log("error")
     })

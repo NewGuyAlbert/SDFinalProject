@@ -2,20 +2,20 @@
 
 <script src="./login.js"></script>
 
-<div class="card">
+<div id="login-card" class="card">
 
-    <h2 class="card-header">Log In</h2>
-    <div class="card-body">
-        <form action="/admin/login" method="POST" name="loginform" onsubmit="return validateLogin();">
-            <p>
-                <label for="key">Enter Key: </label>
+    <h2 id="login-card-header" class="card-header">Log In</h2>
+    <div id="login-card-body" class="card-body">
+        <form id="login-form" class="p-3 mt-3" action="/admin/login" method="POST" name="loginform" onsubmit="return validateLogin();">
+            <p  class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
                 <input type="password" id="key" name="key" placeholder="Type the key.">
             </p>
-            <p> 
-                <label for="email">Enter Email: </label>
+            <p  class="form-field d-flex align-items-center"> 
+                <span class="fa-solid fa-at"></span>
                 <input type="text" id="email" name="email" placeholder="Type in your email.">
             </p> 
-            <button class="btn btn-warning" type="submit">Log In</button>
+            <button class="btn btn-warning login-btn mt-3" type="submit">Log In</button>
         </form>
     </div>
 </div>

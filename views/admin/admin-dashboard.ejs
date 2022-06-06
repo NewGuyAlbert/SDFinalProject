@@ -1,13 +1,11 @@
 <%- include('../components/header.ejs') %>
 <%- include('./navbarAdmin.ejs') %>
 <link rel="stylesheet" type="text/css" href="../css/admin.css">
-<script src="./admin-dashboard.js"></script>
 
 <body>
 
   <%- include('./modal-boardgame.ejs') %>
   <%- include('./modal-order.ejs') %>
-  <%- include('./modal-subscription.ejs') %>
   
   <!-- Table -->
   <div id="tableBodyDiv">
@@ -17,8 +15,6 @@
     <% } else if(orderTable){ %> 
       <script src="./admin-order.js"></script> 
       <%- include('./table-order.ejs') %>
-    <% } else if(subscriptionTable){%>
-      <%- include('./table-subscription.ejs') %>
     <% } else {%>
       <%- include('./table-boardgame.ejs') %>
     <% }%>

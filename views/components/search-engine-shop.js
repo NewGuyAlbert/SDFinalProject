@@ -19,7 +19,7 @@ function addToCart(id, name) {
         url: "/add-to-cart",
         data: { id: id, name: name }
     }).done( function(response){
-        console.log("Added to cart")
+        alert("Added to cart")
         $("#cart-items").append(`<div class="a-cart-item"><p>${name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromCart('${id}','${name}')">remove</a></div>`)
         totalPrice += parseInt($(`#${id}-price > span`).html())
         $("#total-price").html(totalPrice)

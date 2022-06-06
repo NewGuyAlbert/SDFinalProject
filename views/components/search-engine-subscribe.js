@@ -23,7 +23,7 @@ function addToSelection(id, name) {
         url: "/add-to-selection",
         data: { id: id, name: name }
     }).done( function(response){
-        console.log("Added to selection")
+        alert("Added to selection")
         $("#selection-items").append(`<div class="a-cart-item"><p>${name}</p> <a class="remove-btn btn-secondary" type="button" onclick="removeFromSelection('${id}','${name}')">remove</a></div>`)
 
 
