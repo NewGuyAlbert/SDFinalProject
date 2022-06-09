@@ -248,7 +248,7 @@ textarea:-ms-input-placeholder { color: #999999; }
 
 .founders-photo {
   width: 30rem;
-  height: auto;
+  height: fit-content;
   border-radius: 2rem;
   border: 1rem outset var(--ashblue);
   box-shadow: 5px 5px var(--paleblue);
@@ -311,6 +311,10 @@ textarea:-ms-input-placeholder { color: #999999; }
   .jumbotron-div {
     flex-direction: column !important;
     width: 100%;
+  }
+
+  .jumbotron-div > p {
+    margin: 1rem !important;
   }
 
   .founders-photo {

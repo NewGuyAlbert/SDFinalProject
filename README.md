@@ -17,3 +17,5 @@ Note that for this project, some of the credentials in the `.env` file include t
 4. run boardgame, boardgameItem seeds by running `npm run {seeds}`
 5. run Stripe webhook to catch responses from Stripe with `npm run webhook`
 6. run `node app.js`
+
+OR just go to www.cohop.games
