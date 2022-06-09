@@ -248,7 +248,7 @@ textarea:-ms-input-placeholder { color: #999999; }
 
 .founders-photo {
   width: 30rem;
-  height: auto;
+  height: fit-content;
   border-radius: 2rem;
   border: 1rem outset var(--ashblue);
   box-shadow: 5px 5px var(--paleblue);
@@ -292,4 +292,58 @@ textarea:-ms-input-placeholder { color: #999999; }
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+
+
+
+
+
+
+/* For mobile phones */
+@media screen and (max-width: 768px) {
+
+  /* About page */
+  .jumbotron {
+    margin: 1rem !important;
+  }
+
+  .jumbotron-div {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .jumbotron-div > p {
+    margin: 1rem !important;
+  }
+
+  .founders-photo {
+    width: 20rem !important;
+  }
+
+
+  /* Contact Us page */
+
+  .container-contact1 {
+    width: 93% !important;
+    padding: 0 !important;
+    flex-direction: column;
+  }
+
+  .contact1-pic {
+    width: 170px !important;
+  }
+
+  .contact1-form {
+    width: 90%;
+  }
+
+  #subscriptionTypesDiv {
+    flex-direction: column !important;
+  }
+
+  #subscriptionTypesDiv > .card {
+    margin: 1rem auto;
+  }
+
 }

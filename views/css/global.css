@@ -88,6 +88,7 @@ a:hover {
     flex-shrink: none;
     background-color: var(--ashgreen);
     color: whitesmoke; 
+    z-index: 1;
 }
 
 .dropdown-item {
@@ -178,4 +179,139 @@ a:hover {
 #signup-redirect > p, #login-redirect > p {
     color: black;
     margin-right: 10px;
+}
+
+
+
+
+
+/* For mobile phones */
+@media screen and (max-width: 768px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    
+    body {
+        font-size: 0.8rem;
+        margin-top: 120px !important;
+    }
+    
+    footer {
+        width: 100%;
+        padding: 10px 5px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+    }
+    
+    nav {
+        align-items: center;
+        min-height: 50px;
+        width: 100%;
+        top: 0;
+        position: relative;
+        padding: 0;
+    }
+
+    .navbar-light {
+        padding: 0;
+    }
+    
+    .navbar-brand {
+        width: 100%;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        margin: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-left: 5px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--mint);
+    }
+    
+    #nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--greenblue);
+    }
+
+    #nav-menu  > a {
+        padding: 5px;
+        min-height: 5px;
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .main-box {
+        width: 100% !important;
+        min-height: 50vh !important;
+    }
+
+    .main-box > p {
+       font-size: 1rem !important;
+    }
+
+    .main-box > a {
+        font-size: 1rem !important;
+        padding: 7px 25px 7px 25px !important;
+    }
+
+    .outline {
+        flex-direction: column !important;
+    }
+
+    #login-card, #signup-card {
+        width: 90% !important;
+        margin: 15rem auto !important;
+    }
+
+    table {
+        border: 0;
+        width: 100%;
+    }
+    
+    table.modal-open {
+        overflow: hidden;
+    }
+    
+    table thead {
+        border: none;
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        overflow: hidden;
+        position: absolute;
+        padding: 0;
+    }
+    
+    table tr {
+        border-top: 3px solid var(--mint);
+        border-bottom: 3px solid var(--mint);
+        display: block;
+        margin-bottom: .625em;
+    }
+    
+    table tr > td:first-child {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    
+    table td {
+        border-bottom: 1px solid var(--mint);
+        display: block;
+        font-size: 1rem;
+        text-align: left;
+        padding: 2px;
+    }
+
+    
+
 }

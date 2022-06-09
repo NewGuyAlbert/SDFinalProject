@@ -162,3 +162,38 @@
     box-shadow: 3px 3px var(--orange);
     font-size: 1.25rem;
 }
+
+
+
+
+
+/* For mobile phones */
+@media screen and (max-width: 768px) {
+
+    .select-body {
+        flex-direction: column-reverse !important;
+    }
+
+    .search-box {
+        width: 100% !important;
+    }
+
+    .selection-box {
+        width: 100% !important;
+        min-height: 50vh !important;
+    }
+
+    #checkoutButton, #subscribeButton {
+        width: 100% !important;
+        font-size: 1rem;
+    }
+
+    .options-group {
+        flex-direction: column !important;
+    }
+
+    .options-group > .dropdown {
+        margin: 5px !important;
+    }
+
+}

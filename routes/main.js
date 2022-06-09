@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const genres = require('../models/BoardgameGenre.js')
 
 const goToLoginPage = (req, res, next) => {
     if (!req.session.user) {
@@ -23,6 +24,7 @@ router.get('/shop', async (req, res) => {
         return res.render('./pages/shop-boardgames.ejs', {
             sessionUser: req.session.user, 
             items: availableBoardgames,
+            genres: genres,
             subscriptionName: false
         })
     } else{
