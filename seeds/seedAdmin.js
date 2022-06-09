@@ -11,9 +11,10 @@ let newAdmin = new Admin({
     key: adminKey
 })
 
-newAdmin.emails.push({ email: "danilaalbertthefirst@gmail.com"})
-newAdmin.emails.push({ email: "yewonblairseo@gmail.com"})
-newAdmin.emails.push({ email: "albe9220@stud.kea.dk"})
+newAdmin.emails.push({ email: "danilaalbertthefirst@gmail.com" })
+newAdmin.emails.push({ email: "yewonblairseo@gmail.com" })
+newAdmin.emails.push({ email: "albe9220@stud.kea.dk" })
+newAdmin.emails.push({ email: "superplams@gmail.com" })
 
 try{
     Admin.find().distinct("_id").then(async previousList => {

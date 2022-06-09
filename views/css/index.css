@@ -293,3 +293,53 @@ textarea:-ms-input-placeholder { color: #999999; }
   flex-direction: row;
   justify-content: space-around;
 }
+
+
+
+
+
+
+
+/* For mobile phones */
+@media screen and (max-width: 768px) {
+
+  /* About page */
+  .jumbotron {
+    margin: 1rem !important;
+  }
+
+  .jumbotron-div {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .founders-photo {
+    width: 20rem !important;
+  }
+
+
+  /* Contact Us page */
+
+  .container-contact1 {
+    width: 93% !important;
+    padding: 0 !important;
+    flex-direction: column;
+  }
+
+  .contact1-pic {
+    width: 170px !important;
+  }
+
+  .contact1-form {
+    width: 90%;
+  }
+
+  #subscriptionTypesDiv {
+    flex-direction: column !important;
+  }
+
+  #subscriptionTypesDiv > .card {
+    margin: 1rem auto;
+  }
+
+}

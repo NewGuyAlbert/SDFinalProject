@@ -67,4 +67,13 @@ function getSelection(){
     })
 }
 
-getSelection()
+
+$(function () {
+    getSelection()
+
+    $("#search-btn").on("click", (e) => {
+        e.preventDefault()
+        alert("Sorry! This functionality is under construction.")
+    })
+    
+})
