@@ -66,7 +66,8 @@ router.get('/subscribe', async (req, res) => {
                         sessionUser: req.session.user, 
                         items: availableBoardgames, 
                         subscriptionName: subscriptionName,
-                        totalGames: noOfGames
+                        totalGames: noOfGames,
+                        genres: genres
                     })
                 } else {
                     return res.redirect('/subscribe-plan')
