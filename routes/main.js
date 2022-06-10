@@ -61,7 +61,6 @@ router.get('/subscribe', async (req, res) => {
                     //Add plan to session
                     req.session.subscriptionPlan = req.query.plan
             
-                    //TODO Also send current games attached to user if he has already subscribed
                     return res.render('./pages/subscribe-boardgames.ejs', {
                         sessionUser: req.session.user, 
                         items: availableBoardgames, 
